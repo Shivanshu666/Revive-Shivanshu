@@ -136,12 +136,12 @@ style={{height:"800px"}}
         </div>
 
         {/* 🚗 Car */}
-     <div className="relative z-10 overflow-visible w-full md:w-5/12 lg:w-1/2 md:h-auto bg-amber-600 flex justify-center md:justify-center lg:justify-end">
+<div className="relative z-10 overflow-visible w-full md:w-5/12 lg:w-1/2 md:h-auto flex justify-center md:justify-center lg:justify-end">
   <img
     src={car}
     id="carImg"
     alt="Car"
-    className="w-full max-w-[500px] md:max-w-[600px] lg:max-w-none h-auto object-contain transition-transform duration-500 hover:scale-105 block"
+    className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain transition-transform duration-500 hover:scale-105 block"
   />
 </div>
 

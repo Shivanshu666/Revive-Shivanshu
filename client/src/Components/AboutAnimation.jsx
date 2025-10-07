@@ -19,7 +19,7 @@ export default function CarCarePartner() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center overflow-hidden ">
+    <div className="min-h-screen md:mt-12 bg-white flex items-center justify-center overflow-hidden ">
       <div className="w-full max-w-7xl mx-auto">
         
         {/* Desktop Layout */}
