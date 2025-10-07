@@ -1,0 +1,76 @@
+@import "tailwindcss";
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox and IE */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#home{
+height: 900px;
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+ #carImg{
+  width: 150px;
+}
+}
+
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.auto-scroll {
+  display: flex;
+  animation: scroll-left 40s linear infinite;
+}
+
+.auto-scroll:hover {
+  animation-play-state: paused;
+}
+
+@keyframes redOverlay {
+  0% {
+    transform: translateX(0);
+    opacity: 0.95;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0.80;
+  }
+}
+
+.animate-redOverlay {
+  background: rgba(212, 3, 3, 0.9); /* darker red */
+  animation: redOverlay 4s ease-in-out forwards;
+}
+
+@keyframes showBack {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-showBack {
+  animation: showBack 1s ease-in forwards;
+  animation-delay: 2.6s; /* start after overlay completes */
+}
+
