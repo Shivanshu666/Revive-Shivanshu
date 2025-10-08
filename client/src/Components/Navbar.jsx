@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
-import flogo from '../assets/home/fLogo.png';
+import flogo from '../assets/Home/fLogo.png';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { useEffect, useRef } from "react";
