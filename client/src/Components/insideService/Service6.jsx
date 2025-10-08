@@ -30,11 +30,11 @@ const Service6 = () => {
                 {/* Content */}
                 <div className="relative z-10 flex-col flex items-end md:items-center justify-center h-full">
                     <h1 className="text-white text-xl md:text-5xl font-medium text-center">
-                       OIL CHANGE
+                     GRAPHENE & CERAMIC COATING
                     </h1>
                     <div>
 
-                        <p className='text-white text-xs px-4 md:text-sm max-w-7xl text-center mt-16'>AT OUR GARAGE, WE OFFER FAST AND RELIABLE OIL CHANGE SERVICE TO KEEP YOUR ENGINE HEALTHY AND RUNNING AT PEAK PERFORMANCE. OVER TIME, OLD ENGINE OIL LOSES ITS ABILITY TO PROTECT VITAL COMPONENTS, LEADING TO FRICTION, OVERHEATING, AND REDUCED MILEAGE. OUR EXPERTS DRAIN OUT THE DIRTY OIL, REPLACE IT WITH TOP-QUALITY FRESH OIL, AND FIT A BRAND-NEW FILTER TO ENSURE SMOOTH LUBRICATION. WITH THIS SERVICE, YOUR ENGINE STAYS COOLER, CLEANER, AND MORE EFFICIENT, GIVING YOU BETTER PERFORMANCE AND FUEL ECONOMY. REGULAR OIL CHANGES NOT ONLY EXTEND THE LIFE OF YOUR ENGINE BUT ALSO SAVE YOU FROM COSTLY REPAIRS DOWN THE ROAD. WITH OUR QUICK SERVICE, EXPERT CARE, AND PREMIUM PRODUCTS, WE MAKE SURE YOUR CAR IS ALWAYS READY FOR THE JOURNEY AHEAD.</p>
+                        <p className='text-white text-xs px-4 md:text-sm max-w-7xl text-center mt-16'>GIVE YOUR CAR A STUNNING, LONG-LASTING SHINE AND UNBEATABLE PROTECTION WITH OUR PREMIUM GRAPHENE AND CERAMIC COATING SERVICES. THESE ADVANCED COATINGS CREATE A STRONG, HYDROPHOBIC LAYER OVER YOUR VEHICLE’S PAINT, SHIELDING IT FROM UV RAYS, OXIDATION, DIRT, WATER SPOTS, AND CHEMICAL STAINS. GRAPHENE TECHNOLOGY OFFERS ENHANCED DURABILITY AND HEAT RESISTANCE, WHILE CERAMIC COATING ENSURES A DEEP, GLOSSY FINISH THAT MAKES YOUR CAR LOOK BRAND NEW FOR YEARS. WITH OUR EXPERT APPLICATION, MAINTENANCE BECOMES EFFORTLESS — YOUR CAR STAYS CLEANER, SHINES BRIGHTER, AND IS PROTECTED LONGER.</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@ const Service6 = () => {
                     {/* Title at Bottom of Image */}
                     <div className="absolute bottom-4 left-0 right-0 z-20 text-center px-4">
                         <h1 className="text-white text-xl font-semibold">
-                     OIL CHANGE
+                     GRAPHENE & CERAMIC COATING
                         </h1>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ const Service6 = () => {
                 {/* 60% TEXT SECTION */}
                 <div className="bg-white h-[50vh] overflow-y-auto px-4 py-4">
                     <p className="text-black text-sm md:text-sm max-w-3xl mx-auto text-center leading-relaxed">
-                    At our garage, we offer fast and reliable Oil Change Service to keep your engine healthy and running at peak performance. Over time, old engine oil loses its ability to protect vital components, leading to friction, overheating, and reduced mileage. Our experts drain out the dirty oil, replace it with top-quality fresh oil, and fit a brand-new filter to ensure smooth lubrication. With this service, your engine stays cooler, cleaner, and more efficient, giving you better performance and fuel economy. Regular oil changes not only extend the life of your engine but also save you from costly repairs down the road. With our quick service, expert care, and premium products, we make sure your car is always ready for the journey ahead.
+                    Give your car a stunning, long-lasting shine and unbeatable protection with our premium Graphene and Ceramic Coating services. These advanced coatings create a strong, hydrophobic layer over your vehicle’s paint, shielding it from UV rays, oxidation, dirt, water spots, and chemical stains. Graphene technology offers enhanced durability and heat resistance, while ceramic coating ensures a deep, glossy finish that makes your car look brand new for years. With our expert application, maintenance becomes effortless — your car stays cleaner, shines brighter, and is protected longer.
                     </p>
                 </div>
             </div>

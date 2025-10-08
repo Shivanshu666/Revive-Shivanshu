@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
+import flogo from '../assets/home/fLogo.png';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { useEffect, useRef } from "react";
@@ -36,6 +37,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2">
+            <img src={flogo} alt="Logo" className="w-8 h-auto"/>
             <img src={logo} alt="Revive Logo" className="w-28 h-auto" />
           </a>
 
@@ -56,13 +58,13 @@ const Navbar = () => {
           {/* Social Icons (Desktop) */}
           <div className="hidden lg:flex gap-4 items-center text-black text-lg">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF className="hover:text-white transition" />
+              <FaFacebookF className="hover:text-red-600 transition" />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="hover:text-white transition" />
+              <FaInstagram className="hover:text-red-600 transition" />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <FaTwitter className="hover:text-white transition" />
+              <FaTwitter className="hover:text-red-600 transition" />
             </a>
           </div>
 

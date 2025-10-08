@@ -4,9 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import car from "../assets/Home/car3.png";
-import back1 from "../assets/Home/back1.png";
-import back2 from "../assets/Home/back2.png";
-import back3 from "../assets/Home/back3.png";
+
 
 const HeroSection = ({ scrollToBooking }) => {
   const heroRef = useRef(null);
@@ -144,9 +142,6 @@ style={{height:"800px"}}
     className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain transition-transform duration-500 hover:scale-105 block"
   />
 </div>
-
-
-
       </div>
     </section>
   );

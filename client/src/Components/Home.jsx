@@ -3,11 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-import car from "../assets/Home/car3.png";
-import car2 from "../assets/Home/car2.webp";
-import back1 from "../assets/Home/back1.png"
-import back2 from "../assets/Home/back2.png"
-import back3 from "../assets/Home/back3.png"
+
 
 
 import Api from "./Api/Api";
@@ -18,6 +14,13 @@ import { Pagination, Navigation } from 'swiper/modules'; // 👈 Add Navigation 
 
 import "swiper/css";
 import "swiper/css/pagination";
+
+// hero 
+import bghero from "../assets/Home/bghero.png";
+import redBox from "../assets/Home/redBox.png"
+import car1 from "../assets/Home/car1.jpg"
+import road from "../assets/Home/road.png"
+import carRoad from "../assets/Home/porcheRoad.png"
 
 
 // Serivce Images
@@ -320,9 +323,9 @@ useEffect(() => {
   // service
   const services = [
     {
-      title: "AC & COOLING SYSTEM SERVICE",
+      title: "VAG CODING VIA VCDS",
       description:
-        "We inspect, repair, and recharge your car’s AC system for year-round comfort.",
+        "Unlock hidden features and optimize performance with our expert VAG Coding via VCDS service.",
       image: service1,
       link: '/service1'
     },
@@ -355,9 +358,9 @@ useEffect(() => {
       link: '/service5'
     },
     {
-      title: "OIL CHANGE",
+      title: "GRAPHENE & CERAMIC COATING",
       description:
-        "Give your engine the care it deserves. We use premium oil and filters to keep everything running smoothly.",
+        "Shield your car with long-lasting shine and protection using graphene and ceramic coating.",
       image: service6,
       link: '/service6'
     },
@@ -587,71 +590,81 @@ const contactHandle = async (e) => {
   }
 };
 
+// ROad ANimation 
+ useEffect(() => {
+    gsap.to("#road-animation", {
+      x: "-50%", // move it left
+      duration: 10, // speed of the scroll
+      repeat: -1, // infinite
+      ease: "linear", // constant speed
+    });
+  }, []);
+
   ///////
   return (
     <>
-      <main className="overflow-hidden">
+      <main className="overflow-hidden" >
         {/* hero  */}
-      <section
-        className="overflow-hidden flex justify-center relative"
-        ref={homeRef}
-        id="home"
-      >
-        {/* 🔴 Red Overlay */}
-        <div className="absolute inset-0 z-30 animate-redOverlay pointer-events-none"></div>
+  <section className="w-full py-28 bg-white relative" id="home">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start gap-12">
+    
+    {/* Left Content */}
+    <article className="text-center mt-24 lg:text-left w-1/2">
+      <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+        Drive In With Worries,<br className="hidden sm:block" /> Drive Out With Confidence.
+      </h1>
+      <p className="text-lg text-gray-600 mb-8">
+        Whether it’s a small tune-up or a complete overhaul, we restore your vehicle to peak performance.
+      </p>
+ <div className="inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
+  <button className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-3 px-6 transition duration-300">
+    Book Service
+  </button>
+</div>
 
-        <div className="w-[80%] mx-auto lg:px-6 px-2 flex lg:flex-row flex-col-reverse justify-center items-center relative z-100">
-          {/* left content */}
-          <div className="md:w-2/2 text-left -mt-30 z-100">
-            <h1 className="md:text-5xl text-3xl lg:text-6xl font-bold leading-tight max-w-[800px] z-100">
-              Drive In With Worries, <br /> Drive Out With <br /> Confidence.
-            </h1>
-            <p className="text-[#505050] text-base md:text-base mt-1 md:mt-4 z-100">
-              Whether it’s a small tune-up or a complete overhaul, we{" "}
-              <br className="md:block hidden" /> restore your vehicle to peak
-              performance.
-            </p>
-            <div className="flex justify-center md:justify-start">
-              <button
-                onClick={() => scrollToSection(bookingRef)}
-                className="md:mt-6 mt-4 mb-6 md:mb-0 border-2 text-white text-sm font-medium cursor-pointer bg-[#E62425] border-white md:px-9 px-5 py-2 rounded-full"
-                style={{
-                  boxShadow:
-                    "2px 2px 6px rgba(0,0,0,0.2), -2px 2px 6px rgba(0,0,0,0.2)",
-                }}
-              >
-                Book Service
-              </button>
-            </div>
-          </div>
 
-          {/* background layers (hidden initially, fade in later) */}
-          <div className="absolute top-0 right-[-50px] md:right-[-180px] lg:right-[-120px] w-[380px] md:w-[520px] h-40 rounded-br-[100%] opacity-0 animate-showBack delay-10s">
-            <img src={back1} alt="" />
-          </div>
-          <div className="absolute top-0 right-[-90px] md:right-[-230px] lg:right-[-190px] w-[380px] md:w-[520px] h-40 rounded-br-[100%] opacity-0 animate-showBack delay-10s">
-            <img src={back2} alt="" />
-          </div>
-          <div className="absolute top-0 right-[-145px] md:right-[-400px] lg:right-[-425px] w-[280px] md:w-[520px] h-40 rounded-br-[100%] opacity-0 animate-showBack delay-10s">
-            <img src={back3} alt="" />
-          </div>
+    </article>
 
-          {/* car image */}
-          <div
-            className="lg:relative relative left-[-40px] md:left-[-220px] lg:left-[-100px] overflow-visible w-full md:w-1/2 -mt-50"
-            ref={imgRef}
-          >
-            <img
-              src={car}
-              alt="Car-Img"
-              loading="eager"
-              fetchPriority="high"
-              className="object-contain w-[650px] md:w-[900px] lg:w-[1500px] h-auto transition-transform duration-500 hover:scale-105 block"
-              style={{ maxWidth: "none" }}
-            />
-          </div>
-        </div>
-      </section>
+    {/* Right Content (Image) */}
+    <div className="relative mx-auto w-1/2 lg:left-[80px]">
+      {/* Background: Main Car Image */}
+      <img
+        src={bghero}
+        alt="Car at the service center"
+        className="relative top-[-50px] z-0 w-full max-h-screen object-contain"
+      />
+
+      {/* Foreground: redBox + car1 */}
+      <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] max-w-none">
+        <img
+          src={redBox}
+          alt="Background graphic"
+          className="w-full h-auto object-cover"
+        />
+        <img
+          src={car1}
+          alt="Decorative car"
+          className="absolute top-[-43px] left-1/2 -translate-x-1/2 z-20 h-[280px] w-[90%] max-w-none"
+        />
+      </div>
+    </div>
+  </div>
+
+  {/* Road image animation (background) */}
+  <div className="overflow-hidden w-full relative z-0 mt-[-200px]">
+    <div id="road-animation" className="w-[300%] flex">
+      <img src={road} alt="Road" className="w-[150%] h-[170px]" />
+      <img src={road} alt="Road duplicate" className="w-[150%] h-[170px]" />
+    </div>
+  </div>
+
+  {/* carRoad image on top of the moving road */}
+  <div className="absolute bottom-[90px] left-0 z-10">
+    <img src={carRoad} alt="Car on road" className="h-[220px] w-auto" />
+  </div>
+</section>
+
+
 
 
         {/* // ABout US */}
@@ -964,7 +977,11 @@ const contactHandle = async (e) => {
                     src={testimonial.src}
                     alt={testimonial.name}
                     loading="lazy"
-                    className="w-24 h-24 md:w-28 md:h-[420px]  object-cover cursor-pointer border-2 border-gray-300 hover:scale-105 transition"
+                     className={`w-24 h-24 md:w-28 md:h-[420px] object-cover cursor-pointer border-2 transition hover:scale-105 ${
+    selectedIndex === index
+      ? "border-gray-400 filter-none"
+      : "border-black filter grayscale"
+  }`}
                     onClick={() =>
                       setSelectedIndex((prev) =>
                         prev === index ? null : index

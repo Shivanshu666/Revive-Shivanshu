@@ -20,12 +20,12 @@ const Service5 = () => {
                 <div className="absolute inset-0 bg-black/40"></div>
 
                 {/* Back Button */}
-                {/* <button
+                <button
                     onClick={() => navigate(-1)}
                     className="absolute top-6 left-6 z-20 bg-white/80 hover:bg-white text-black px-4 py-2 rounded-md shadow-md transition"
                 >
                     ← Back
-                </button> */}
+                </button>
 
                 {/* Content */}
                 <div className="relative z-10 flex-col flex items-end md:items-center justify-center h-full">

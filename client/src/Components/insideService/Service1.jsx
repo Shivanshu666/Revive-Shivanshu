@@ -34,11 +34,11 @@ const Service1 = () => {
       {/* Content */}
       <div className="relative z-10 flex-col flex items-end md:items-center justify-center h-full">
         <h1 className="text-white text-xl md:text-5xl font-medium text-center">
-          AC & COOLING SYSTEM SERVICE
+          VAG CODING VIA VCDS
         </h1>
         <div>
 
-        <p className='text-white text-xs px-4 md:text-sm max-w-7xl text-center mt-16'>AT OUR GARAGE, WE PROVIDE THE BEST AC AND COOLING SYSTEM SERVICE TO KEEP YOUR CAR RUNNING SMOOTHLY AND YOUR DRIVES COMFORTABLE. IF YOUR AC ISN’T COOLING PROPERLY OR YOUR ENGINE IS OVERHEATING, DON’T WORRY—WE’VE GOT YOU COVERED. OUR EXPERT TEAM CAREFULLY CHECKS EVERY PART OF THE SYSTEM, FROM THE RADIATOR AND COMPRESSOR TO THE THERMOSTAT AND COOLANT LINES, TO FIND THE EXACT PROBLEM. WE FIX LEAKS, CLEAN OR REPLACE DAMAGED PARTS, AND REFILL HIGH-QUALITY COOLANT TO ENSURE LONG-LASTING PERFORMANCE. ONCE OUR SERVICE IS DONE, YOUR AC WILL BLOW ICY-COOL AIR, AND YOUR ENGINE WILL STAY AT THE PERFECT TEMPERATURE, EVEN ON THE HOTTEST DAYS. WITH OUR ADVANCED TOOLS, SKILLED TECHNICIANS, AND COMMITMENT TO QUALITY, WE MAKE SURE YOUR CAR GETS NOTHING LESS THAN THE BEST CARE.</p>
+        <p className='text-white text-xs px-4 md:text-sm max-w-7xl text-center mt-16'>UNLOCK YOUR CAR’S HIDDEN POTENTIAL WITH OUR PROFESSIONAL VAG CODING SERVICE USING VCDS. WE CUSTOMIZE AND ENHANCE YOUR VEHICLE’S FEATURES BY ACCESSING AND ADJUSTING FACTORY SETTINGS SAFELY AND PRECISELY. FROM ENABLING HIDDEN FUNCTIONS LIKE COMFORT INDICATORS, AUTO-LOCKING, AND DYNAMIC LIGHTING TO OPTIMIZING PERFORMANCE AND CONVENIENCE SETTINGS, OUR CODING SOLUTIONS LET YOU PERSONALIZE YOUR DRIVING EXPERIENCE. WITH EXPERT HANDLING AND ADVANCED DIAGNOSTIC TOOLS, WE ENSURE EVERY TWEAK IS DONE SECURELY AND EFFECTIVELY, GIVING YOUR CAR THE UPGRADE IT TRULY DESERVES.</p>
       </div>
         </div>
     </div>
@@ -69,7 +69,7 @@ const Service1 = () => {
     {/* Title at Bottom of Image */}
     <div className="absolute bottom-4 left-0 right-0 z-20 text-center px-4">
       <h1 className="text-white text-xl font-semibold">
-        AC & COOLING SYSTEM SERVICE
+        VAG CODING VIA VCDS
       </h1>
     </div>
   </div>
@@ -77,7 +77,7 @@ const Service1 = () => {
   {/* 60% TEXT SECTION */}
   <div className="bg-white h-[50vh] overflow-y-auto px-4 py-4">
     <p className="text-black text-sm md:text-sm max-w-3xl mx-auto text-center leading-relaxed">
-     At our garage, we provide the best AC and Cooling System Service to keep your car running smoothly and your drives comfortable. If your AC isn’t cooling properly or your engine is overheating, don’t worry—we’ve got you covered. Our expert team carefully checks every part of the system, from the radiator and compressor to the thermostat and coolant lines, to find the exact problem. We fix leaks, clean or replace damaged parts, and refill high-quality coolant to ensure long-lasting performance. Once our service is done, your AC will blow icy-cool air, and your engine will stay at the perfect temperature, even on the hottest days. With our advanced tools, skilled technicians, and commitment to quality, we make sure your car gets nothing less than the best care.
+    Unlock your car’s hidden potential with our professional VAG Coding service using VCDS. We customize and enhance your vehicle’s features by accessing and adjusting factory settings safely and precisely. From enabling hidden functions like comfort indicators, auto-locking, and dynamic lighting to optimizing performance and convenience settings, our coding solutions let you personalize your driving experience. With expert handling and advanced diagnostic tools, we ensure every tweak is done securely and effectively, giving your car the upgrade it truly deserves.
     </p>
   </div>
 </div>

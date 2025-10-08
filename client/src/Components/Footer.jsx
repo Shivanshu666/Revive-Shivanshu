@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaYoutube} from "react-icons/fa";
 import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom"
 import logo from '../assets/logo.png';
@@ -14,14 +14,7 @@ import tyre from "../assets/Footer/FinalTyre.png"
 
 const Footer = () => {
   const navigate = useNavigate();
-  //  useEffect(() => {
-  //     if (location.state?.scrollToFooter) {
-  //       const footerElement = document.getElementById('footer-section');
-  //       if (footerElement) {
-  //         footerElement.scrollIntoView({ behavior: 'smooth' });
-  //       }
-  //     }
-  //   }, [location]);
+  
   return (
     <>
       <footer className="relative bg-white text-gray-700 overflow-hidden md:block hidden scroll-mt-34" id='footer-section'>
@@ -47,8 +40,8 @@ const Footer = () => {
             <div className="md:flex space-x-4 mt-4 md:mt-0 hidden">
               <FaFacebookF className="text-gray-600 hover:text-red-600 cursor-pointer" />
               <FaInstagram className="text-gray-600 hover:text-red-600 cursor-pointer" />
-              <FaTwitter className="text-gray-600 hover:text-red-600 cursor-pointer" />
-              <FaLinkedinIn className="text-gray-600 hover:text-red-600 cursor-pointer" />
+              <FaYoutube className="text-gray-600 hover:text-red-600 cursor-pointer" />
+              
             </div>
           </div>
           {/* Column 1 - About Us */}
@@ -56,9 +49,9 @@ const Footer = () => {
             <h3 className="text-lg font-bold text-black mb-3" >ABOUT US</h3>
             <ul className="space-y-2 text-sm font-medium">
               <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#about')}>ABOUT</li>
-              <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#about')}>WHO ARE WE</li>
+              <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#booking')}>CONTACT</li>
               <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#whyChooseUs')}>WHY CHOOSE US</li>
-              <li className="hover:text-red-600 cursor-pointer">OUR HISTORY</li>
+              {/* <li className="hover:text-red-600 cursor-pointer">REPLACEMENT</li> */}
             </ul>
           </div>
 
@@ -66,21 +59,22 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-black mb-3">OUR SERVICES</h3>
             <ul className="space-y-2 text-sm font-medium">
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerAc'>AC & COOLING SYSTEM</Link></li>
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerEngine'>ENGINE DIAGNOSTICS & REPAIR</Link></li>
               <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake'>BRAKE SERVICE & REPLACEMENT</Link></li>
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash'>CAR WASHING & DETAILING</Link></li>
+              <li><Link className="hover:text-red-600 cursor-pointer" to='/'>CERAMIC COATING</Link></li>
+              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerTransmission'>TRANSMISSION</Link></li>
             </ul>
           </div>
 
           {/* Column 3 - Contact */}
           <div>
-            <h3 className="text-lg font-bold text-black mb-3">CONTACT US</h3>
+            <h3 className="text-lg font-bold text-black mb-3">OTHER SERVICES</h3>
             <ul className="space-y-2 text-sm font-medium">
-              <li className="hover:text-red-600 cursor-pointer">OUR LOCATION</li>
-              <li className="hover:text-red-600 cursor-pointer">CONTACT US</li>
-              <li className="hover:text-red-600 cursor-pointer">ADDRESS</li>
-              <li className="hover:text-red-600 cursor-pointer">FACEBOOK</li>
+              <li className="hover:text-red-600 cursor-pointer">GRAPHENE COATING</li>
+              {/* <li className="hover:text-red-600 cursor-pointer">VCDS</li> */}
+              <li className="hover:text-red-600 cursor-pointer" to='/footerVag'>VAG CODING & VCDS</li>
+              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash'>CAR WASHING</Link></li>
+
+              {/* <li className="hover:text-red-600 cursor-pointer">FACEBOOK</li> */}
             </ul>
           </div>
         </div>
@@ -111,6 +105,8 @@ const Footer = () => {
 
         </div>
       </footer>
+
+      {/* // MOBILE  */}
 
       <footer className="md:hidden block relative px-4 bg-white text-gray-700 overflow-hidden scroll-mt-34">
  {/* Red Curved Background Top Left */}
@@ -171,8 +167,7 @@ const Footer = () => {
             <div className="flex space-x-4 mt-4 md:mt-0 ">
               <FaFacebookF className="text-gray-600 hover:text-red-600 cursor-pointer" />
               <FaInstagram className="text-gray-600 hover:text-red-600 cursor-pointer" />
-              <FaTwitter className="text-gray-600 hover:text-red-600 cursor-pointer" />
-              <FaLinkedinIn className="text-gray-600 hover:text-red-600 cursor-pointer" />
+              <FaYoutube className="text-gray-600 hover:text-red-600 cursor-pointer" />
             </div>
           </div>
         </div>

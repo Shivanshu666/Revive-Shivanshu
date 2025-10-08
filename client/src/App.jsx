@@ -22,7 +22,7 @@ const AppWrapper = () => {
   const location = useLocation();
 
   // Define routes where Navbar and Footer should be hidden
-  const hideNavbarFooterRoutes = ['/service1','/service2','/service3','/service4','/service5','/service6','/footerAc','/footerEngine','/footerBrake','/footerWash'];
+  const hideNavbarFooterRoutes = ['/service1','/service2','/service3','/service4','/service5','/service6','/footerVag','/footerTransmission','/footerBrake','/footerWash'];
 
   const shouldHide = hideNavbarFooterRoutes.includes(location.pathname);
 
@@ -32,6 +32,7 @@ const AppWrapper = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/service1" element={<Service1 />} />
         <Route path="/service2" element={<Service2 />} />
         <Route path="/service3" element={<Service3 />} />
@@ -39,8 +40,8 @@ const AppWrapper = () => {
         <Route path="/service5" element={<Service5 />} />
         <Route path="/service6" element={<Service6 />} />
         {/* // footer // */}
-        <Route path="/footerAc" element={<Service1/>}/> 
-        <Route path='/footerEngine' element={<Service2/>}/>
+        <Route path="/footerVag" element={<Service1/>}/> 
+        <Route path='/footerTransmission' element={<Service5/>}/>
         <Route path='/footerBrake' element={<Service3/>}/>
         <Route path='/footerWash' element={<Service4/>}/>
         <Route path='/sample' element={<Sample/>}/>
