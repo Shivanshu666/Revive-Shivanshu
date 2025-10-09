@@ -26,10 +26,11 @@ const Footer = () => {
         {/* Red Curved Background Bottom Right */}
         <div className="absolute top-[-16px] right-[-90px] w-[590px] h-40 rounded-tl-[100%]"><img src={red2} alt=""  /></div>
         <div className="absolute top-0 right-0 w-[590px] h-40 rounded-tl-[100%]"><img src={red1} alt=""  /></div>
-        <div className="absolute top-[225px] right-[-140px] lg:top-[-45px] lg:right-[-69px] w-[360px] md:w-[560px] h-40 rounded-tl-[100%]"><img src={tyre} alt=""  /></div>
+        <div className="absolute top-[225px] right-[-140px] lg:top-[-45px] lg:right-[-100px] w-[360px] md:w-[530px] z-30 h-40 rounded-tl-[100%]"><img src={tyre} alt=""  /></div>
 
 
-<div className="relative container mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-4 gap-11">
+<div className="relative container mx-auto px-6 py-20
+ grid grid-cols-1 lg:grid-cols-4 gap-11">
 
   {/* Column 1 - Logo and Description */}
   <div className="flex flex-col w-full justify-between">
@@ -93,10 +94,10 @@ const Footer = () => {
 
 
         {/* Divider */}
-        <div className="border-t border-black w-[90%] mx-auto"></div>
+        <div className="border-t border-black w-[100%] relative z-20 mx-auto"></div>
 
         {/* Bottom Section */}
-        <div className="relative container mx-auto px-6 py-6 flex lg:flex-row md:flex-col  md:justify-center md:mb-6 lg:gap-[145px] items-center text-sm">
+        <div className="relative container mx-auto px-6 flex mt-4 lg:flex-row md:flex-col  md:justify-center md:mb-6 lg:gap-[145px] items-center text-sm">
           <p className="text-black flex items-center space-x-2 md:mb-2 lg:mb-0">
             <span>© 2025 Revive Garage</span>
             <span className="h-4 w-px bg-black"></span>
