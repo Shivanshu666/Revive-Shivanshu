@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { CarFront as Camera } from 'lucide-react';
 import carImage from '../assets/about/aboutbg2.jpg';
 import BackImage from '../assets/about/aboutbg1.png';
@@ -9,17 +9,39 @@ import BackImageMobile from '../assets/about/bg.png';
 export default function CarCarePartner() {
   const [animationStage, setAnimationStage] = useState(0);
 
+const aboutSectionRef = useRef(null);
+
+
   useEffect(() => {
-    const timer1 = setTimeout(() => setAnimationStage(1), 500);
-    const timer2 = setTimeout(() => setAnimationStage(2), 1500);
+    let timer1, timer2;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          // Start animation timers only when 50% visible
+          timer1 = setTimeout(() => setAnimationStage(1), 500);
+          timer2 = setTimeout(() => setAnimationStage(2), 1500);
+
+          // Once animation starts, no need to observe anymore
+          observer.disconnect();
+        }
+      },
+      { threshold: [0.5] } // Trigger callback when 50% visible
+    );
+
+    if (aboutSectionRef.current) {
+      observer.observe(aboutSectionRef.current);
+    }
+
+    // Cleanup timers and observer on unmount
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
+      observer.disconnect();
     };
   }, []);
 
   return (
-    <div className="min-h-screen md:mt-12 bg-white flex items-center justify-center overflow-hidden ">
+    <div className="min-h-screen mt-8 md:mt-12 bg-white flex items-center justify-center overflow-hidden " ref={aboutSectionRef}>
       <div className="w-full max-w-7xl mx-auto">
         
         {/* Desktop Layout */}

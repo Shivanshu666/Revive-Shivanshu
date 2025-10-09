@@ -21,7 +21,7 @@ const Service5 = () => {
 
                 {/* Back Button */}
                 <button
-                    onClick={() => navigate(-1)}
+                     onClick={() => navigate('/#footer-section')}
                     className="absolute top-6 left-6 z-20 bg-white/80 hover:bg-white text-black px-4 py-2 rounded-md shadow-md transition"
                 >
                     ← Back

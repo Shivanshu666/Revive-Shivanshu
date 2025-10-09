@@ -4,9 +4,6 @@ import service1 from '../../assets/service/insideService/service1.webp';
 
 const Service1 = () => {
   const navigate = useNavigate();
-  const handleBack = () => {
- navigate('/', { state: { scrollToFooter: true } });// slight delay to ensure DOM is mounted
-};
 
 
   return (
@@ -25,7 +22,7 @@ const Service1 = () => {
 
       {/* Back Button */}
        <button
-        onClick={handleBack}
+         onClick={() => navigate('/#footer-section')}
         className="absolute top-6 left-6 z-20 bg-white/80 hover:bg-white text-black px-4 py-2 rounded-md shadow-md transition"
       >
         ← Back

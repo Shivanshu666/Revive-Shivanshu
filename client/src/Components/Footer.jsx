@@ -29,62 +29,75 @@ const Footer = () => {
         <div className="absolute top-[225px] right-[-140px] lg:top-[-45px] lg:right-[-69px] w-[360px] md:w-[560px] h-40 rounded-tl-[100%]"><img src={tyre} alt=""  /></div>
 
 
-        <div className="relative container mx-auto px-6 py-12 grid grid-cols-2  lg:grid-cols-4 gap-32">
+<div className="relative container mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-4 gap-11">
 
-          <div className="flex flex-col w-full justify-between">
-            <a href="#home" className="flex items-center space-x-2">
-              <img src={logo} alt="Revive Logo" className="w-30 h-auto" />
-            </a>
-            <p className="text-sm font-medium">From routine maintenance to advanced repairs, we keep your car performing at its best.</p>
-            {/* Social Icons */}
-            <div className="md:flex space-x-4 mt-4 md:mt-0 hidden">
-              <FaFacebookF className="text-gray-600 hover:text-red-600 cursor-pointer" />
-              <FaInstagram className="text-gray-600 hover:text-red-600 cursor-pointer" />
-              <FaYoutube className="text-gray-600 hover:text-red-600 cursor-pointer" />
-              
-            </div>
-          </div>
-          {/* Column 1 - About Us */}
-          <div>
-            <h3 className="text-lg font-bold text-black mb-3" >ABOUT US</h3>
-            <ul className="space-y-2 text-sm font-medium">
-              <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#about')}>ABOUT</li>
-              <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#booking')}>CONTACT</li>
-              <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#whyChooseUs')}>WHY CHOOSE US</li>
-              {/* <li className="hover:text-red-600 cursor-pointer">REPLACEMENT</li> */}
-            </ul>
-          </div>
+  {/* Column 1 - Logo and Description */}
+  <div className="flex flex-col w-full justify-between">
+    <a href="#home" className="flex items-center space-x-2">
+      <img src={logo} alt="Revive Logo" className="w-30 h-auto" />
+    </a>
+    <p className="text-sm font-medium mt-4">
+      From routine maintenance to advanced repairs, we keep your car performing at its best.
+    </p>
 
-          {/* Column 2 - Services */}
-          <div>
-            <h3 className="text-lg font-bold text-black mb-3">OUR SERVICES</h3>
-            <ul className="space-y-2 text-sm font-medium">
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake'>BRAKE SERVICE & REPLACEMENT</Link></li>
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/'>CERAMIC COATING</Link></li>
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerTransmission'>TRANSMISSION</Link></li>
-            </ul>
-          </div>
+    {/* Social Icons */}
+  <div className="md:flex space-x-4 mt-9 md:mt-4 hidden">
+  <a href="#" target="_blank" rel="noopener noreferrer">
+    <FaFacebookF className="text-gray-600 hover:text-red-600 cursor-pointer" />
+  </a>
+  <a href="https://www.instagram.com/reviveauto.hyderabad?igsh=MTd0Z2xlNHYya3Jkbg==" target="_blank" rel="noopener noreferrer">
+    <FaInstagram className="text-gray-600 hover:text-red-600 cursor-pointer" />
+  </a>
+  <a href="#" target="_blank" rel="noopener noreferrer">
+    <FaYoutube className="text-gray-600 hover:text-red-600 cursor-pointer" />
+  </a>
+</div>
 
-          {/* Column 3 - Contact */}
-          <div>
-            <h3 className="text-lg font-bold text-black mb-3">OTHER SERVICES</h3>
-            <ul className="space-y-2 text-sm font-medium">
-              <li className="hover:text-red-600 cursor-pointer">GRAPHENE COATING</li>
-              {/* <li className="hover:text-red-600 cursor-pointer">VCDS</li> */}
-              <li className="hover:text-red-600 cursor-pointer" to='/footerVag'>VAG CODING & VCDS</li>
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash'>CAR WASHING</Link></li>
+  </div>
 
-              {/* <li className="hover:text-red-600 cursor-pointer">FACEBOOK</li> */}
-            </ul>
-          </div>
-        </div>
+  {/* ✅ Flex container for ABOUT, SERVICES, OTHER SERVICES */}
+  <div className="col-span-1 ml-[150px] lg:col-span-3 flex flex-col md:flex-row gap-[40px] lg:gap-[60px]">
+
+    {/* ABOUT US */}
+    <div>
+      <h3 className="text-lg font-bold text-black mb-3">ABOUT US</h3>
+      <ul className="space-y-2 text-sm font-medium">
+        <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#about')}>ABOUT</li>
+        <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#booking')}>CONTACT</li>
+        <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#whyChooseUs')}>WHY CHOOSE US</li>
+      </ul>
+    </div>
+
+    {/* OUR SERVICES */}
+    <div>
+      <h3 className="text-lg font-bold text-black mb-3">OUR SERVICES</h3>
+      <ul className="space-y-2 text-sm font-medium">
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake'>BRAKE SERVICE & REPLACEMENT</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerCeremic'>CERAMIC COATING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerTransmission'>TRANSMISSION</Link></li>
+      </ul>
+    </div>
+
+    {/* OTHER SERVICES */}
+    <div>
+      <h3 className="text-lg font-bold text-black mb-3">OTHER SERVICES</h3>
+      <ul className="space-y-2 text-sm font-medium">
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerGrap'>GRAPHENE COATING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerVag'>VAG CODING & VCDS</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash'>CAR WASHING</Link></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
 
         {/* Divider */}
         <div className="border-t border-black w-[90%] mx-auto"></div>
 
         {/* Bottom Section */}
-        <div className="relative container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p className="text-black flex items-center space-x-2">
+        <div className="relative container mx-auto px-6 py-6 flex lg:flex-row md:flex-col  md:justify-center md:mb-6 lg:gap-[145px] items-center text-sm">
+          <p className="text-black flex items-center space-x-2 md:mb-2 lg:mb-0">
             <span>© 2025 Revive Garage</span>
             <span className="h-4 w-px bg-black"></span>
             <span>All Rights Reserved</span>

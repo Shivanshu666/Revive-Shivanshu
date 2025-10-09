@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation,Link } from 'react-router-dom';
-import ScrollToTop from './Components/ScrollToTop';
+// import ScrollToTopOnRefresh from '../src/Components/ScrollToTopOnRefresh';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Footer from './Components/Footer';
@@ -22,16 +22,17 @@ const AppWrapper = () => {
   const location = useLocation();
 
   // Define routes where Navbar and Footer should be hidden
-  const hideNavbarFooterRoutes = ['/service1','/service2','/service3','/service4','/service5','/service6','/footerVag','/footerTransmission','/footerBrake','/footerWash'];
+  const hideNavbarFooterRoutes = ['/service1','/service2','/service3','/service4','/service5','/service6','/footerVag','/footerCeremic','/footerGrap','/footerTransmission','/footerBrake','/footerWash'];
 
   const shouldHide = hideNavbarFooterRoutes.includes(location.pathname);
 
   return (
     <>
       {!shouldHide && <Navbar />}
-      <ScrollToTop />
+      {/* <ScrollToTopOnRefresh /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
 
         <Route path="/service1" element={<Service1 />} />
         <Route path="/service2" element={<Service2 />} />
@@ -41,6 +42,8 @@ const AppWrapper = () => {
         <Route path="/service6" element={<Service6 />} />
         {/* // footer // */}
         <Route path="/footerVag" element={<Service1/>}/> 
+        <Route path='/footerGrap' element={<Service6/>}/>
+        <Route path='/footerCeremic' element={<Service6/>}/>
         <Route path='/footerTransmission' element={<Service5/>}/>
         <Route path='/footerBrake' element={<Service3/>}/>
         <Route path='/footerWash' element={<Service4/>}/>

@@ -69,6 +69,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 // About
 import AboutAnimation from "../Components/AboutAnimation"
+import Footer from "./Footer";
 
 const Home = () => {
   const location = useLocation();
@@ -114,7 +115,7 @@ useEffect(() => {
 
   // bkkoing button 
   const bookingRef = useRef(null);
-  const contactRef = useRef(null);
+ 
 
   // Reusable scroll function
   const scrollToSection = (ref) => {
@@ -131,6 +132,15 @@ useEffect(() => {
   const imgRef = useRef(null);
   const textRef1 = useRef(null);
   const imageRef1 = useRef(null);
+   const sectionRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      sectionRef.current,
+      { scale: 1.2, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 4, ease: "power3.out" }
+    );
+  }, []);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -219,23 +229,7 @@ useEffect(() => {
         }
       );
 
-      // Gallery Section
-      gsap.fromTo(
-        galleryRef.current,
-        { y: 50, opacity: 0, filter: "blur(10px)" },
-        {
-          y: 0,
-          opacity: 1,
-          filter: "blur(0px)",
-          duration: 2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: galleryRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+
 
       // Why Choose Us Section
 
@@ -591,33 +585,50 @@ const contactHandle = async (e) => {
 };
 
 // ROad ANimation 
- useEffect(() => {
-    gsap.to("#road-animation", {
-      x: "-50%", // move it left
-      duration: 10, // speed of the scroll
-      repeat: -1, // infinite
-      ease: "linear", // constant speed
-    });
-  }, []);
+
+useEffect(() => {
+  gsap.to("#road-animation", {
+    xPercent: -50,
+    duration: 10,
+    repeat: -1,
+    ease: "linear",
+    modifiers: {
+      xPercent: gsap.utils.wrap(-100, 0), // ensures seamless wrap
+    },
+  });
+}, []);
 
   ///////
+  // Footer logic 
+    useEffect(() => {
+    if (location.hash === '#home') {
+      const footerEl = document.getElementById('home');
+      if (footerEl) {
+        // Add delay in case Footer is rendered after this effect
+        setTimeout(() => {
+          footerEl.scrollIntoView({ behavior: 'auto' });
+        }, 100); 
+      }
+    }
+  }, [location]);
+  /////
   return (
     <>
       <main className="overflow-hidden" >
         {/* hero  */}
-  <section className="w-full py-28 bg-white relative" id="home">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start gap-12">
+  <section className="w-full py-20 bg-white relative" id="home" ref={sectionRef }>
+  <div className="max-w-screen lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex md:flex-row lg:flex-row items-start gap-12">
     
     {/* Left Content */}
-    <article className="text-center mt-24 lg:text-left w-1/2">
-      <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-        Drive In With Worries,<br className="hidden sm:block" /> Drive Out With Confidence.
+    <article className="text-start mt-12 md:mt-24 lg:text-left w-2/2 md:w-1/2">
+      <h1 className="text-xl md:text-2xl lg:text-5xl sm:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+        Drive In With Worries,<br className="hidden sm:block" /> Drive Out With <br className="lg:block hidden" /> Confidence.
       </h1>
-      <p className="text-lg text-gray-600 mb-8">
+      <p className="text-sm md:text-lg text-gray-600 mb-4 md:mb-8">
         Whether it’s a small tune-up or a complete overhaul, we restore your vehicle to peak performance.
       </p>
- <div className="inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
-  <button className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-3 px-6 transition duration-300">
+ <div className="inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
+  <button className="bg-red-600 text-sm md:text-base hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-4 md:py-3 md:px-9 transition duration-300">
     Book Service
   </button>
 </div>
@@ -626,42 +637,52 @@ const contactHandle = async (e) => {
     </article>
 
     {/* Right Content (Image) */}
-    <div className="relative mx-auto w-1/2 lg:left-[80px]">
+    <div className="relative mx-auto left-0 w-1/2 lg:left-[80px]">
       {/* Background: Main Car Image */}
       <img
         src={bghero}
         alt="Car at the service center"
-        className="relative top-[-50px] z-0 w-full max-h-screen object-contain"
+        className="relative w-[100px] top-[-50px] z-0 md:w-full max-h-screen object-contain"
       />
 
       {/* Foreground: redBox + car1 */}
-      <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-[90%] max-w-none">
+      <div className="absolute top-[35%] left-[43px] lg:left-[200px] xl:left-[285px] md:left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 md:w-[80%] lg:w-[90%] w-[160%]">
         <img
           src={redBox}
           alt="Background graphic"
           className="w-full h-auto object-cover"
         />
-        <img
-          src={car1}
-          alt="Decorative car"
-          className="absolute top-[-43px] left-1/2 -translate-x-1/2 z-20 h-[280px] w-[90%] max-w-none"
-        />
+       
+  <img
+    src={car1}
+    alt="Decorative car"
+    className="absolute top-[-30px] md:top-[-43px] left-1/2 -translate-x-1/2 z-20 
+               md:h-[170px] lg:h-[240px] xl:h-[290px] h-[120px] w-[90%] max-w-none 
+               transition-transform duration-700 group-hover:scale-105"
+  />
       </div>
     </div>
   </div>
 
   {/* Road image animation (background) */}
-  <div className="overflow-hidden w-full relative z-0 mt-[-200px]">
-    <div id="road-animation" className="w-[300%] flex">
-      <img src={road} alt="Road" className="w-[150%] h-[170px]" />
-      <img src={road} alt="Road duplicate" className="w-[150%] h-[170px]" />
-    </div>
+<div className="overflow-hidden w-full relative z-0 mt-[-120px] md:mt-[-200px] lg:mt-[-200px]">
+  <div id="road-animation" className="flex w-[200%]">
+    <img src={road} alt="Road" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" />
+    <img src={road} alt="Road duplicate" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" />
   </div>
+</div>
+
 
   {/* carRoad image on top of the moving road */}
-  <div className="absolute bottom-[90px] left-0 z-10">
-    <img src={carRoad} alt="Car on road" className="h-[220px] w-auto" />
-  </div>
+<div className="absolute bottom-[390px] md:bottom-[310px] lg:bottom-[270px] xl:bottom-[200px] md:left-[100px] lg:left-[240px] z-10 group">
+  <img
+    src={carRoad}
+    alt="Car on road"
+    className="h-[130px] xl:h-[280px] md:h-[180px] lg:h-[250px] w-auto 
+               transition-transform duration-700 ease-in-out group-hover:scale-105"
+  />
+</div>
+
 </section>
 
 
@@ -669,7 +690,7 @@ const contactHandle = async (e) => {
 
         {/* // ABout US */}
         <section
-          className="w-full bg-white px-6 md:mt-[150px] md:px-20 scroll-mt-20"
+          className="w-full bg-white px-6 mt-[-190px] md:mt-[-50px] xl:mt-[50px] md:px-20 scroll-mt-20"
           ref={aboutRef}
           id="about"
         >
@@ -690,12 +711,11 @@ const contactHandle = async (e) => {
               </p>
 
               {/* Desktop Button */}
-              <button
-                onClick={toggleText}
-                className="bg-red-600 mt-6 text-sm lg:block hidden text-white font-medium px-6 py-3 shadow-2xl shadow-black hover:bg-red-700 transition animate-item"
-              >
-                {showMore ? "SHOW LESS" : "LEARN MORE"}
-              </button>
+  <div className="hidden lg:inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.3)]" onClick={toggleText}>
+  <button className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-3 px-6 transition duration-300">
+    {showMore ? "SHOW LESS" : "LEARN MORE"}
+  </button>
+</div>
 
               {/* Mobile Button */}
               <div className="flex justify-center animate-item">
@@ -734,7 +754,7 @@ const contactHandle = async (e) => {
 
         {/* Service  */}
         <section
-          className="w-[90%] mx-auto md:mt-[150px] py-6 scroll-mt-12"
+          className="w-[90%] mx-auto lg:mt-[100px] py-6 scroll-mt-12"
           ref={serviceRef}
           id="services"
         >
@@ -753,7 +773,7 @@ const contactHandle = async (e) => {
         </div>
 
         {/* Navigation Buttons */}
-  <div className="flex justify-end gap-4 mt-6 px-6 md:px-12">
+  <div className="flex justify-end gap-4 mt-6 px-6 md:px-12 md:hidden ">
   {/* Previous Button */}
   <button className="swiper-button-prev w-8 h-8 md:w-10 md:h-10 hover:cursor-pointer rotate-180 flex items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-gray-100 transition-all duration-200">
 
@@ -767,7 +787,7 @@ const contactHandle = async (e) => {
 
 
         {/* Swiper Carousel */}
-        <div className="py-6 px-6 md:px-12 relative">
+        <div className="py-6 px-6 md:px-12 mt-2 relative">
           <Swiper
             modules={[Pagination, Navigation]}
             spaceBetween={20}
@@ -816,7 +836,7 @@ const contactHandle = async (e) => {
 
         {/* Brand We Serve  */}
 
-        <section className="w-[90%] mx-auto md:mt-[150px] py-6" id="brands" ref={brandWeServeRef}>
+        <section className="w-[90%] mx-auto md:mt-[80px] py-6" id="brand-item" ref={brandWeServeRef}>
           <h1 className="text-center text-xl md:text-2xl font-medium mb-6 md:mb-12">
             Brands We Serve
           </h1>
@@ -840,7 +860,7 @@ const contactHandle = async (e) => {
         </section>
 
         {/* // Latest Project  */}
-        <section className="w-[100%] md:mt-[150px] py-12 bg-gray-400 scroll-mt-6" ref={galleryRef} id='gallery'>
+        <section className="w-[100%] md:mt-[150px] py-12 bg-gray-400 scroll-mt-18" ref={galleryRef} id='gallery'>
           <div>
             <h3 className="text-center text-lg md:text-2xl font-medium text-[#F6452D] tracking-widest">
               GALLERY
@@ -952,7 +972,7 @@ const contactHandle = async (e) => {
         </section>
 
         {/* // testinomials */}
-        <section className=" w-full py-16  md:mt-[150px] bg-gray-50 scroll-mt-6" id='testimonial'>
+        <section className=" w-full py-16  md:mt-[100px] scroll-mt-6" id='testimonial'>
           <div className="w-full mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-10">
               What Our Customers Say
@@ -1098,15 +1118,11 @@ const contactHandle = async (e) => {
         </div>
       )}
     </div>
-
-
-
-
           </div>
         </section>
 
         {/* // Booking  */}
-        <section className="w-[90%]  md:mt-[150px] max-w-6xl mx-auto py-10 scroll-mt-9" id='booking' ref={bookingRef}>
+        <section className="w-[90%]  md:mt-[120px] max-w-6xl mx-auto py-10 scroll-mt-9" id='booking' ref={bookingRef}>
           <h2 className="text-xl md:text-2xl font-bold md:mb-18 mb-4 text-center">
             Book An Appointment
           </h2>
@@ -1135,12 +1151,17 @@ const contactHandle = async (e) => {
               </p>
 
               <h3 className="text-2xl font-semibold mb-2 md:block hidden">
-                Contact
-              </h3>
-              <p className="text-gray-600 md:block hidden">
-                reviewgarage@gmail.com
-              </p>
-              <p className="text-gray-600 md:block hidden">123-123-123</p>
+  Contact
+</h3>
+
+<a href="mailto:info@revive-auto.in" className="text-gray-600 md:block hidden ">
+  info@revive-auto.in
+</a>
+
+<a href="tel:+917382661199" className="text-gray-600 md:block hidden ">
+  +91-7382661199
+</a>
+
             </div>
 
             {/* Right Side Form */}
