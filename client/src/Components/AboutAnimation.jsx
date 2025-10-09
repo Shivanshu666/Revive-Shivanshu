@@ -49,7 +49,7 @@ const aboutSectionRef = useRef(null);
           
           {/* Image Section */}
           <div 
-            className={`relative z-20 transition-all duration-1000 ease-in-out`}
+            className={`relative z-20 transition-all duration-1000 ease-in-out left-[120px]`}
             style={{ width: '450px', height: '400px' }}
           >
             <div className="relative w-full h-full group">
@@ -128,7 +128,7 @@ const aboutSectionRef = useRef(null);
             }`}
             style={{ zIndex: animationStage === 2 ? 10 : 5 }}
           >
-            <div className="relative w-full h-[450px] overflow-hidden" style={{
+            <div className="relative top-[-100px] w-full h-[450px] overflow-hidden" style={{
               backgroundImage: `url(${BackImageTablet})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -160,7 +160,7 @@ const aboutSectionRef = useRef(null);
             }`}
             style={{ zIndex: animationStage === 2 ? 10 : 5 }}
           >
-            <div className="relative w-full h-[400px] overflow-hidden" style={{
+            <div className="relative top-[-50px] w-full h-[400px] overflow-hidden" style={{
               backgroundImage: `url(${BackImageMobile})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
