@@ -18,9 +18,9 @@ import "swiper/css/pagination";
 // hero 
 import bghero from "../assets/Home/bghero.png";
 import redBox from "../assets/Home/redBox.png"
-import car1 from "../assets/Home/car1.jpg"
+import car1 from "../assets/Home/car1.webp"
 import road from "../assets/Home/road.png"
-import carRoad from "../assets/Home/porcheRoad.png"
+import carRoad from "../assets/Home/porcheRoad.webp"
 
 
 // Serivce Images
@@ -69,32 +69,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 // About
 import AboutAnimation from "../Components/AboutAnimation"
-import Footer from "./Footer";
+
 
 const Home = () => {
   const location = useLocation();
   const testimonialBoxRef = useRef(null);
    const [selectedIndex, setSelectedIndex] = useState(null);
 
-useEffect(() => {
-  if (selectedIndex !== null && testimonialBoxRef.current) {
-    gsap.fromTo(
-      testimonialBoxRef.current,
-      {
-        x: -100,         // Start from left
-        opacity: 0,
-        filter: "blur(6px)",
-      },
-      {
-        x: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-        duration: 0.5,
-        ease: "power2.out",
-      }
-    );
-  }
-}, [selectedIndex]);
 
  useEffect(() => {
     if (location.hash) {
@@ -109,7 +90,6 @@ useEffect(() => {
   }, [location]);
   ///
 
-  //  const location = useLocation();
 
 
 
@@ -164,48 +144,55 @@ useEffect(() => {
       );
 
       // About Section Animation
-      const elements = gsap.utils.toArray(
-        "#about .animate-item"
-      );
+    const elements = gsap.utils.toArray("#about .animate-item");
 
-      gsap.fromTo(
-        elements,
-        { y: 50, opacity: 0, filter: "blur(10px)" },
-        {
-          y: 0,
-          opacity: 1,
-          filter: "blur(0px)",
-          duration: 1,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: aboutRef.current,
-            start: "top 40%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+if (elements.length > 0) {
+  gsap.fromTo(
+    elements,
+    { y: 50, opacity: 0, filter: "blur(10px)" },
+    {
+      y: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    }
+  );
+}
 
       // Services Section
       const serviceItems = serviceRef.current.querySelectorAll(".animate-item");
 
-      gsap.fromTo(
-        serviceItems,
-        { y: 100, opacity: 0, filter: "blur(10px)" }, // right se aayenge
-        {
-          y: 0,
-          opacity: 1,
-          filter: "blur(0px)",
-          duration: 1,
-          ease: "power2.out",
-          stagger: 0.2, // ek ek karke appear honge
-          scrollTrigger: {
-            trigger: serviceRef.current,
-            start: "top 40%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+      if (serviceRef.current) {
+  const serviceItems = serviceRef.current.querySelectorAll(".animate-item");
+
+  if (serviceItems.length > 0) {
+    gsap.fromTo(
+      serviceItems,
+      { y: 100, opacity: 0, filter: "blur(10px)" },
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: serviceRef.current,
+          start: "top 40%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }
+}
+
 
       // // Brand Section
 
@@ -638,6 +625,7 @@ useEffect(() => {
           src={redBox}
           alt="Background graphic"
           className="w-full h-auto object-cover"
+          fetchpriority="high"
         />
        
   <img
@@ -645,7 +633,7 @@ useEffect(() => {
     alt="Decorative car"
     className="absolute top-[-30px] md:top-[-43px] left-1/2 -translate-x-1/2 z-20 
                md:h-[170px] lg:h-[240px] xl:h-[290px] h-[120px] w-[90%] max-w-none 
-               transition-transform duration-700 group-hover:scale-105"
+               transition-transform duration-700 group-hover:scale-105" fetchpriority="high"
   />
       </div>
     </div>
@@ -654,8 +642,8 @@ useEffect(() => {
   {/* Road image animation (background) */}
 <div className="overflow-hidden w-full relative z-0 mt-[-120px] md:mt-[-200px] lg:mt-[-200px]">
   <div id="road-animation" className="flex w-[200%]">
-    <img src={road} alt="Road" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" />
-    <img src={road} alt="Road duplicate" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" />
+    <img src={road} alt="Road" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" fetchpriority="high" />
+    <img src={road} alt="Road duplicate" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]"  fetchpriority="high"/>
   </div>
 </div>
 
@@ -666,7 +654,7 @@ useEffect(() => {
     src={carRoad}
     alt="Car on road"
     className="h-[130px] xl:h-[280px] md:h-[180px] lg:h-[250px] w-auto 
-               transition-transform duration-700 ease-in-out group-hover:scale-105"
+               transition-transform duration-700 ease-in-out group-hover:scale-105" fetchpriority="high"
   />
 </div>
 

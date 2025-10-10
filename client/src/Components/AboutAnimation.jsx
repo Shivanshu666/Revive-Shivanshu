@@ -4,7 +4,7 @@ import carImage from '../assets/about/aboutbg2.jpg';
 import BackImage from '../assets/about/aboutbg1.png';
 import BackImageTablet from '../assets/about/bg.png';
 import BackImageMobile from '../assets/about/bg.png';
-// import BackImageInitial from '../assets/about/aboutbg3.png';
+
 
 export default function CarCarePartner() {
   const [animationStage, setAnimationStage] = useState(0);
