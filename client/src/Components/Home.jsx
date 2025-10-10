@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, Navigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -96,15 +96,15 @@ useEffect(() => {
   }
 }, [selectedIndex]);
 
-
-  useEffect(() => {
+ useEffect(() => {
     if (location.hash) {
-      const element = document.getElementById(location.hash.slice(1)); // remove "#"
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100); // delay to ensure the DOM is ready
-      }
+      // Wait for DOM to load then scroll smoothly
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'auto' });
+        }
+      }, 100);
     }
   }, [location]);
   ///
@@ -402,7 +402,7 @@ useEffect(() => {
 
   //
 
-  // project //
+  // project ANimation //
  
   const scrollRef = useRef(null); // outer overflow container
   const imageRowRef = useRef(null); // inner image row
@@ -432,7 +432,7 @@ useEffect(() => {
     // ✅ Animate inner image row to the left
     animationRef.current = gsap.to(imageRow, {
       x: "-50%",
-      duration: 40,
+      duration: 80,
       ease: "linear",
       repeat: -1,
     });
@@ -628,7 +628,7 @@ useEffect(() => {
         Whether it’s a small tune-up or a complete overhaul, we restore your vehicle to peak performance.
       </p>
  <div className="inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-  <button className="bg-red-600 text-sm md:text-base hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-4 md:py-3 md:px-9 transition duration-300">
+  <button onClick={() => scrollToSection(bookingRef)} className="bg-red-600 text-sm md:text-base hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-4 md:py-3 md:px-9 transition duration-300">
     Book Service
   </button>
 </div>
@@ -772,18 +772,7 @@ useEffect(() => {
           </p>
         </div>
 
-        {/* Navigation Buttons */}
-  <div className="flex justify-end gap-4 mt-6 px-6 md:px-12 md:hidden ">
-  {/* Previous Button */}
-  <button className="swiper-button-prev w-8 h-8 md:w-10 md:h-10 hover:cursor-pointer rotate-180 flex items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-gray-100 transition-all duration-200">
 
-  </button>
-
-  {/* Next Button */}
-  <button className="swiper-button-next w-8 h-8 md:w-10 md:h-10 hover:cursor-pointer  flex items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-gray-100 transition-all duration-200">
-    
-  </button>
-</div>
 
 
         {/* Swiper Carousel */}
@@ -809,7 +798,7 @@ useEffect(() => {
           >
             {services.map((service, index) => (
               <SwiperSlide key={index}>
-                <Link to={service.link}>
+                <Link to={service.link} state={{ from: 'services' }}>
                   <div className="bg-white w-full rounded-2xl shadow-xl overflow-hidden animate-item">
                     <img
                       src={service.image}
@@ -871,7 +860,7 @@ useEffect(() => {
  <div className="mt-10 overflow-hidden mb-6" ref={scrollRef}>
           {/* ✅ Animated Image Row */}
           <div className="flex gap-4 w-max" ref={imageRowRef}>
-            {[project1, project2, project3, project4, project5, project6, project7].map((img, index) => (
+            {[project1, project2, project3, project4, project5, project6, project7,project1, project2, project3, project4, project5, project6, project7,project1, project2, project3, project4, project5, project6, project7,project1, project2, project3, project4, project5, project6, project7].map((img, index) => (
               <img
                 key={index}
                 src={img}

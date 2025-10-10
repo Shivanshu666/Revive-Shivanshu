@@ -77,11 +77,83 @@ height: 900px;
 
 /* Target active pagination bullet */
 .swiper-pagination-bullet-active {
-  background-color: #ff0000 !important;
+  background-color: red !important;
    opacity: 1 !important; 
 }
 
 /* Optional: Change inactive dots too */
 .swiper-pagination-bullet {
-  background-color: #fca5a5 !important; /* light red (optional) */
+  background-color: red !important; /* light red (optional) */
+}
+
+/* mobile  */
+@media (min-width: 320px) and (max-width: 667px) {
+  #tyre{
+    top: 226px !important;
+    width: 390px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 503px) {
+  #tyre{
+    top: 258px !important;
+    width: 370px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 448px) {
+  #tyre{
+    top: 271px !important;
+    width: 350px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 383px) {
+  #tyre{
+    top: 305px !important;
+    width: 300px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 372px) {
+  #tyre{
+    top: 328px !important;
+    width: 300px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 362px) {
+  #tyre{
+    top: 342px !important;
+    width: 280px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 351px) {
+  #tyre{
+    top: 363px !important;
+    width: 280px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 349px) {
+  #tyre{
+    top: 402px !important;
+    width: 250px !important;
+  }
+}
+@media (min-width: 320px) and (max-width: 326px) {
+  #tyre{
+    top: 450px !important;
+    width: 250px !important;
+  }
+}
+
+/* /////// */
+/* desktop  */
+@media (min-width: 1024px) and (max-width: 1342px) {
+  #tyre{
+    top: 30px !important;
+    width: 450px !important;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1100px) {
+  #tyre{
+    top: 95px !important;
+    width: 350px !important;
+  }
 }

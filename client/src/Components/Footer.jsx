@@ -19,21 +19,19 @@ const Footer = () => {
     <>
       <footer className="relative bg-white text-gray-700 overflow-hidden md:block hidden scroll-mt-34" id='footer-section'>
         {/* Red Curved Background Top Left */}
-        <div className="absolute bottom-[190px] left-0 w-[580px] h-40  rounded-br-[100%]"><img src={red4} alt="" /></div>
-        <div className="absolute bottom-[120px] left-0 w-[580px]  h-40  rounded-br-[100%]"><img src={red3} alt="" /></div>
+        <div className="absolute bottom-[65px] lg:bottom-[190px] left-0 lg:w-[580px] md:w-[380px] h-40  rounded-br-[100%]"><img src={red4} alt="" /></div>
+        <div className="absolute bottom-[25px] lg:bottom-[120px] left-0 lg:w-[580px] md:w-[380px]  h-40  rounded-br-[100%]"><img src={red3} alt="" /></div>
 
 
         {/* Red Curved Background Bottom Right */}
-        <div className="absolute top-[-16px] right-[-90px] w-[590px] h-40 rounded-tl-[100%]"><img src={red2} alt=""  /></div>
-        <div className="absolute top-0 right-0 w-[590px] h-40 rounded-tl-[100%]"><img src={red1} alt=""  /></div>
-        <div className="absolute top-[225px] right-[-140px] lg:top-[-45px] lg:right-[-100px] w-[360px] md:w-[530px] z-30 h-40 rounded-tl-[100%]"><img src={tyre} alt=""  /></div>
+        <div className="absolute top-[-58px] lg:top-[-16px] right-[-90px] lg:w-[590px] h-40 rounded-tl-[100%]"><img src={red2} alt=""  /></div>
+        <div className="absolute top-[-40px] lg:top-0 right-0 lg:w-[590px] h-40 rounded-tl-[100%]"><img src={red1} alt=""  /></div>
+        <div className="absolute md:top-[105px] right-[-140px] lg:top-[-6px] lg:right-[-100px] md:w-[400px] lg:w-[505px] z-30 h-40 rounded-tl-[100%]" id='tyre'><img src={tyre} alt=""  /></div>
 
 
-<div className="relative container mx-auto px-6 py-20
- grid grid-cols-1 lg:grid-cols-4 gap-11">
-
+<div className="relative container mx-auto px-6 mt-6 py-20 flex flex-col md:flex-row gap-18">
   {/* Column 1 - Logo and Description */}
-  <div className="flex flex-col w-full justify-between">
+  <div className="flex flex-col w-full md:w-1/4 justify-between">
     <a href="#home" className="flex items-center space-x-2">
       <img src={logo} alt="Revive Logo" className="w-30 h-auto" />
     </a>
@@ -42,25 +40,24 @@ const Footer = () => {
     </p>
 
     {/* Social Icons */}
-  <div className="md:flex space-x-4 mt-9 md:mt-4 hidden">
-  <a href="#" target="_blank" rel="noopener noreferrer">
-    <FaFacebookF className="text-gray-600 hover:text-red-600 cursor-pointer" />
-  </a>
-  <a href="https://www.instagram.com/reviveauto.hyderabad?igsh=MTd0Z2xlNHYya3Jkbg==" target="_blank" rel="noopener noreferrer">
-    <FaInstagram className="text-gray-600 hover:text-red-600 cursor-pointer" />
-  </a>
-  <a href="#" target="_blank" rel="noopener noreferrer">
-    <FaYoutube className="text-gray-600 hover:text-red-600 cursor-pointer" />
-  </a>
-</div>
-
+    <div className="hidden md:flex space-x-4 mt-9 md:mt-4">
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <FaFacebookF className="text-gray-600 hover:text-red-600 cursor-pointer" />
+      </a>
+      <a href="https://www.instagram.com/reviveauto.hyderabad?igsh=MTd0Z2xlNHYya3Jkbg==" target="_blank" rel="noopener noreferrer">
+        <FaInstagram className="text-gray-600 hover:text-red-600 cursor-pointer" />
+      </a>
+      <a href="#" target="_blank" rel="noopener noreferrer">
+        <FaYoutube className="text-gray-600 hover:text-red-600 cursor-pointer" />
+      </a>
+    </div>
   </div>
 
-  {/* ✅ Flex container for ABOUT, SERVICES, OTHER SERVICES */}
-  <div className="col-span-1 ml-[150px] lg:col-span-3 flex flex-col md:flex-row gap-[40px] lg:gap-[60px]">
-
+  {/* Right Side - About, Services, Other Services */}
+  <div className="flex flex-col md:flex-row w-full md:w-3/4">
+    
     {/* ABOUT US */}
-    <div>
+    <div className="flex flex-col w-full md:w-1/3">
       <h3 className="text-lg font-bold text-black mb-3">ABOUT US</h3>
       <ul className="space-y-2 text-sm font-medium">
         <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#about')}>ABOUT</li>
@@ -70,22 +67,22 @@ const Footer = () => {
     </div>
 
     {/* OUR SERVICES */}
-    <div>
+    <div className="flex flex-col w-full md:w-1/3">
       <h3 className="text-lg font-bold text-black mb-3">OUR SERVICES</h3>
       <ul className="space-y-2 text-sm font-medium">
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake'>BRAKE SERVICE & REPLACEMENT</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerCeremic'>CERAMIC COATING</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerTransmission'>TRANSMISSION</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake' state={{ from: 'footer'}}>BRAKE SERVICE & REPLACEMENT</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerCeremic' state={{ from: 'footer' }}>CERAMIC COATING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerTransmission' state={{ from: 'footer' }}>TRANSMISSION</Link></li>
       </ul>
     </div>
 
     {/* OTHER SERVICES */}
-    <div>
+    <div className="flex flex-col w-full md:w-1/3">
       <h3 className="text-lg font-bold text-black mb-3">OTHER SERVICES</h3>
       <ul className="space-y-2 text-sm font-medium">
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerGrap'>GRAPHENE COATING</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerVag'>VAG CODING & VCDS</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash'>CAR WASHING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerGrap' state={{ from: 'footer' }}>GRAPHENE COATING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerVag' state={{ from:'footer'}}>VAG CODING & VCDS</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash' state={{ from: 'footer' }}>CAR WASHING</Link></li>
       </ul>
     </div>
 
@@ -93,12 +90,15 @@ const Footer = () => {
 </div>
 
 
+
+
+
         {/* Divider */}
         <div className="border-t border-black w-[100%] relative z-20 mx-auto"></div>
 
         {/* Bottom Section */}
-        <div className="relative container mx-auto px-6 flex mt-4 lg:flex-row md:flex-col  md:justify-center md:mb-6 lg:gap-[145px] items-center text-sm">
-          <p className="text-black flex items-center space-x-2 md:mb-2 lg:mb-0">
+        <div className="relative container mx-auto px-6 flex mt-4 lg:flex-row md:flex-row gap-16  md:justify-center mb-4 lg:mb-6 lg:gap-[145px] items-center text-sm">
+          <p className="text-black flex items-center space-x-2  lg:mb-0">
             <span>© 2025 Revive Garage</span>
             <span className="h-4 w-px bg-black"></span>
             <span>All Rights Reserved</span>
@@ -131,7 +131,7 @@ const Footer = () => {
         {/* Red Curved Background Bottom Right */}
         <div className="absolute top-[-16px] right-[-90px] w-[390px] h-40 rounded-tl-[100%]"><img src={red2} alt=""  /></div>
         <div className="absolute top-0 right-0 w-[390px] h-40 rounded-tl-[100%]"><img src={red1} alt=""  /></div>
-        <div className="absolute bottom-[90px] right-[-89px] w-[380px] h-40 rounded-tl-[100%]"><img src={tyre} alt=""  /></div>
+        <div className="absolute top-[241px] sm:top-[162px] bottom-[90px] right-[-89px] w-[450px] h-40 rounded-tl-[100%]" id='tyre'><img src={tyre} alt=""  /></div>
         <div className="w-full mt-6">
         <a href="#home" className="flex items-center space-x-2">
               <img src={logo} alt="Revive Logo" className="w-30 h-auto" />
@@ -147,33 +147,30 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-black mb-3" >ABOUT US</h3>
             <ul className="space-y-2 text-sm font-medium">
-              <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#about')}>ABOUT</li>
-              <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#about')}>WHO ARE WE</li>
-              <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#whyChooseUs')}>WHY CHOOSE US</li>
-              <li className="hover:text-red-600 cursor-pointer">OUR HISTORY</li>
-            </ul>
+        <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#about')}>ABOUT</li>
+        <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#booking')}>CONTACT</li>
+        <li className="hover:text-red-600 cursor-pointer" onClick={() => navigate('/#whyChooseUs')}>WHY CHOOSE US</li>
+      </ul>
           </div>
 
           {/* Column 2 - Services */}
           <div>
             <h3 className="text-lg font-bold text-black mb-3">OUR SERVICES</h3>
             <ul className="space-y-2 text-sm font-medium">
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerAc'>AC & COOLING SYSTEM</Link></li>
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerEngine'>ENGINE DIAGNOSTICS & REPAIR</Link></li>
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake'>BRAKE SERVICE & REPLACEMENT</Link></li>
-              <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash'>CAR WASHING & DETAILING</Link></li>
-            </ul>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake'>BRAKE SERVICE & REPLACEMENT</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerCeremic'>CERAMIC COATING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerTransmission'>TRANSMISSION</Link></li>
+      </ul>
           </div>
 
           {/* Column 3 - Contact */}
           <div>
             <h3 className="text-lg font-bold text-black mb-3">CONTACT US</h3>
-            <ul className="space-y-2 text-sm font-medium">
-              <li className="hover:text-red-600 cursor-pointer">OUR LOCATION</li>
-              <li className="hover:text-red-600 cursor-pointer">CONTACT US</li>
-              <li className="hover:text-red-600 cursor-pointer">ADDRESS</li>
-              <li className="hover:text-red-600 cursor-pointer">FACEBOOK</li>
-            </ul>
+             <ul className="space-y-2 text-sm font-medium">
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerGrap'>GRAPHENE COATING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerVag'>VAG CODING & VCDS</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash'>CAR WASHING</Link></li>
+      </ul>
           </div>
           <div className="flex flex-col justify-between">
          
