@@ -149,15 +149,33 @@ html {
 
 /* /////// */
 /* desktop  */
-@media (min-width: 1024px) and (max-width: 1342px) {
+/* @media (min-width: 1024px) and (max-width: 1342px) {
   #tyre{
-    top: 30px !important;
+    top: 130px !important;
     width: 450px !important;
   }
-}
-@media (min-width: 1024px) and (max-width: 1100px) {
+} */
+/* @media (min-width: 1025px) and (max-width: 1160px) {
   #tyre{
-    top: 95px !important;
+    top: -195px !important;
+    width: 350px !important;
+  }
+} */
+@media (min-width: 1024px) and (max-width: 1028px) {
+  #tyre{
+    top: 136px !important;
+    width: 350px !important;
+  }
+}
+@media (min-width: 1029px) and (max-width: 1149px) {
+  #tyre{
+    top: 115px !important;
+    width: 350px !important;
+  }
+}
+@media (min-width: 1150px) and (max-width: 1250px) {
+  #tyre{
+    top: 125px !important;
     width: 350px !important;
   }
 }

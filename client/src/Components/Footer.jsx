@@ -16,7 +16,7 @@ const Footer = () => {
   
   return (
     <>
-      <footer className="relative bg-white text-gray-700 overflow-hidden md:block hidden scroll-mt-34" id='footer-section'>
+      <footer className="relative mx-auto bg-white lg:px-32 text-gray-700 overflow-hidden md:block hidden scroll-mt-34" id='footer-section'>
         {/* Red Curved Background Top Left */}
         <div className="absolute bottom-[65px] lg:bottom-[190px] left-0 lg:w-[580px] md:w-[380px] h-40  rounded-br-[100%]"><img src={red4} alt="" /></div>
         <div className="absolute bottom-[25px] lg:bottom-[120px] left-0 lg:w-[580px] md:w-[380px]  h-40  rounded-br-[100%]"><img src={red3} alt="" /></div>

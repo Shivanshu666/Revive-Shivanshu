@@ -62,6 +62,9 @@ const aboutSectionRef = useRef(null);
                   src={carImage}
                   alt="Car garage"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading='lazy'
+                  decoding="async"
+  fetchpriority="low"
                 />
                 <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-70 transition-opacity duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />

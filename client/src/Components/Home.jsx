@@ -74,10 +74,10 @@ import AboutAnimation from "../Components/AboutAnimation"
 const Home = () => {
   const location = useLocation();
   const testimonialBoxRef = useRef(null);
-   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
 
- useEffect(() => {
+  useEffect(() => {
     if (location.hash) {
       // Wait for DOM to load then scroll smoothly
       setTimeout(() => {
@@ -95,7 +95,7 @@ const Home = () => {
 
   // bkkoing button 
   const bookingRef = useRef(null);
- 
+
 
   // Reusable scroll function
   const scrollToSection = (ref) => {
@@ -112,7 +112,7 @@ const Home = () => {
   const imgRef = useRef(null);
   const textRef1 = useRef(null);
   const imageRef1 = useRef(null);
-   const sectionRef = useRef(null);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -144,54 +144,54 @@ const Home = () => {
       );
 
       // About Section Animation
-    const elements = gsap.utils.toArray("#about .animate-item");
+      const elements = gsap.utils.toArray("#about .animate-item");
 
-if (elements.length > 0) {
-  gsap.fromTo(
-    elements,
-    { y: 50, opacity: 0, filter: "blur(10px)" },
-    {
-      y: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 1,
-      stagger: 0.2,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: aboutRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    }
-  );
-}
+      if (elements.length > 0) {
+        gsap.fromTo(
+          elements,
+          { y: 50, opacity: 0, filter: "blur(10px)" },
+          {
+            y: 0,
+            opacity: 1,
+            filter: "blur(0px)",
+            duration: 1,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: aboutRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
 
       // Services Section
       const serviceItems = serviceRef.current.querySelectorAll(".animate-item");
 
       if (serviceRef.current) {
-  const serviceItems = serviceRef.current.querySelectorAll(".animate-item");
+        const serviceItems = serviceRef.current.querySelectorAll(".animate-item");
 
-  if (serviceItems.length > 0) {
-    gsap.fromTo(
-      serviceItems,
-      { y: 100, opacity: 0, filter: "blur(10px)" },
-      {
-        y: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-        duration: 1,
-        ease: "power2.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: serviceRef.current,
-          start: "top 40%",
-          toggleActions: "play none none none",
-        },
+        if (serviceItems.length > 0) {
+          gsap.fromTo(
+            serviceItems,
+            { y: 100, opacity: 0, filter: "blur(10px)" },
+            {
+              y: 0,
+              opacity: 1,
+              filter: "blur(0px)",
+              duration: 1,
+              ease: "power2.out",
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: serviceRef.current,
+                start: "top 40%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
       }
-    );
-  }
-}
 
 
       // // Brand Section
@@ -390,7 +390,7 @@ if (elements.length > 0) {
   //
 
   // project ANimation //
- 
+
   const scrollRef = useRef(null); // outer overflow container
   const imageRowRef = useRef(null); // inner image row
   const animationRef = useRef(null);
@@ -408,7 +408,7 @@ if (elements.length > 0) {
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
-  
+
   useEffect(() => {
     const imageRow = imageRowRef.current;
 
@@ -476,11 +476,11 @@ if (elements.length > 0) {
     },
   ];
 
-   
-///
- 
-    const [showAll, setShowAll] = useState(false);  // movbile
-     // Decide how many to show
+
+  ///
+
+  const [showAll, setShowAll] = useState(false);  // movbile
+  // Decide how many to show
   const visibleTestimonials = showAll ? testimonials : testimonials.slice(0, 3);  //mobile
   ///
 
@@ -533,132 +533,132 @@ if (elements.length > 0) {
   };
   const [loading, setLoading] = useState(false);
 
-const contactHandle = async (e) => {
-  e.preventDefault();
-  if (!contactValidationForm()) return;
+  const contactHandle = async (e) => {
+    e.preventDefault();
+    if (!contactValidationForm()) return;
 
-  setLoading(true);
+    setLoading(true);
 
-  try {
-    const response = await Api.createContact(formData);
+    try {
+      const response = await Api.createContact(formData);
 
-    if (response.status === 200) {
-      toast.success("Message Submitted Successfully", {
-        position: "bottom-right",
-        style: {
-          backgroundColor: "green",
-          borderLeft: "4px solid #142241",
-          color: "white",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-        },
-      });
+      if (response.status === 200) {
+        toast.success("Message Submitted Successfully", {
+          position: "bottom-right",
+          style: {
+            backgroundColor: "green",
+            borderLeft: "4px solid #142241",
+            color: "white",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+          },
+        });
 
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        service: "",
-        date: "",
-        time: "",
-        message: "",
-      });
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          service: "",
+          date: "",
+          time: "",
+          message: "",
+        });
+      }
+    } catch (err) {
+      console.log("Frontend Error:", err);
+      toast.error("Something went wrong, try again!");
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    console.log("Frontend Error:", err);
-    toast.error("Something went wrong, try again!");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
-// ROad ANimation 
+  // ROad ANimation 
 
-useEffect(() => {
-  gsap.to("#road-animation", {
-    xPercent: -50,
-    duration: 10,
-    repeat: -1,
-    ease: "linear",
-    modifiers: {
-      xPercent: gsap.utils.wrap(-100, 0), // ensures seamless wrap
-    },
-  });
-}, []);
+  useEffect(() => {
+    gsap.to("#road-animation", {
+      xPercent: -50,
+      duration: 10,
+      repeat: -1,
+      ease: "linear",
+      modifiers: {
+        xPercent: gsap.utils.wrap(-100, 0), // ensures seamless wrap
+      },
+    });
+  }, []);
 
   /////
   return (
     <>
       <main className="overflow-hidden" >
         {/* hero  */}
-  <section className="w-full py-20 bg-white relative" id="home" ref={sectionRef }>
-  <div className="max-w-screen lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex md:flex-row lg:flex-row items-start gap-12">
-    
-    {/* Left Content */}
-    <article className="text-start mt-12 md:mt-24 lg:text-left w-2/2 md:w-1/2">
-      <h1 className="text-xl md:text-2xl lg:text-5xl sm:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
-        Drive In With Worries,<br className="hidden sm:block" /> Drive Out With <br className="lg:block hidden" /> Confidence.
-      </h1>
-      <p className="text-sm md:text-lg text-gray-600 mb-4 md:mb-8">
-        Whether it’s a small tune-up or a complete overhaul, we restore your vehicle to peak performance.
-      </p>
- <div className="inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-  <button onClick={() => scrollToSection(bookingRef)} className="bg-red-600 text-sm md:text-base hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-4 md:py-3 md:px-9 transition duration-300">
-    Book Service
-  </button>
-</div>
+        <section className="w-full py-20 bg-white relative" id="home" ref={sectionRef}>
+          <div className="max-w-screen lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex md:flex-row lg:flex-row items-start gap-12">
+
+            {/* Left Content */}
+            <article className="text-start mt-12 md:mt-24 lg:text-left w-2/2 md:w-1/2">
+              <h1 className="text-xl md:text-2xl lg:text-5xl sm:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+                Drive In With Worries,<br className="hidden sm:block" /> Drive Out With <br className="lg:block hidden" /> Confidence.
+              </h1>
+              <p className="text-sm md:text-lg text-gray-600 mb-4 md:mb-8">
+                Whether it’s a small tune-up or a complete overhaul, we restore your vehicle to peak performance.
+              </p>
+              <div className="inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
+                <button onClick={() => scrollToSection(bookingRef)} className="bg-red-600 text-sm md:text-base hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-4 md:py-3 md:px-9 transition duration-300">
+                  Book Service
+                </button>
+              </div>
 
 
-    </article>
+            </article>
 
-    {/* Right Content (Image) */}
-    <div className="relative mx-auto left-0 w-1/2 lg:left-[80px]">
-      {/* Background: Main Car Image */}
-      <img
-        src={bghero}
-        alt="Car at the service center"
-        className="relative w-[100px] top-[-50px] z-0 md:w-full max-h-screen object-contain"
-      />
+            {/* Right Content (Image) */}
+            <div className="relative mx-auto left-0 w-1/2 lg:left-[80px]">
+              {/* Background: Main Car Image */}
+              <img
+                src={bghero}
+                alt="Car at the service center"
+                className="relative w-[100px] top-[-50px] z-0 md:w-full max-h-screen object-contain"
+              />
 
-      {/* Foreground: redBox + car1 */}
-      <div className="absolute top-[35%] left-[43px] lg:left-[200px] xl:left-[285px] md:left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 md:w-[80%] lg:w-[90%] w-[160%]">
-        <img
-          src={redBox}
-          alt="Background graphic"
-          className="w-full h-auto object-cover"
-          fetchpriority="high"
-        />
-       
-  <img
-    src={car1}
-    alt="Decorative car"
-    className="absolute top-[-30px] md:top-[-43px] left-1/2 -translate-x-1/2 z-20 
+              {/* Foreground: redBox + car1 */}
+              <div className="absolute top-[35%] left-[43px] lg:left-[200px] xl:left-[285px] md:left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 md:w-[80%] lg:w-[90%] w-[160%]">
+                <img
+                  src={redBox}
+                  alt="Background graphic"
+                  className="w-full h-auto object-cover"
+                  fetchpriority="high"
+                />
+
+                <img
+                  src={car1}
+                  alt="Decorative car"
+                  className="absolute top-[-30px] md:top-[-43px] left-1/2 -translate-x-1/2 z-20 
                md:h-[170px] lg:h-[240px] xl:h-[290px] h-[120px] w-[90%] max-w-none 
                transition-transform duration-700 group-hover:scale-105" fetchpriority="high"
-  />
-      </div>
-    </div>
-  </div>
+                />
+              </div>
+            </div>
+          </div>
 
-  {/* Road image animation (background) */}
-<div className="overflow-hidden w-full relative z-0 mt-[-120px] md:mt-[-200px] lg:mt-[-200px]">
-  <div id="road-animation" className="flex w-[200%]">
-    <img src={road} alt="Road" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" fetchpriority="high" />
-    <img src={road} alt="Road duplicate" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]"  fetchpriority="high"/>
-  </div>
-</div>
+          {/* Road image animation (background) */}
+          <div className="overflow-hidden w-full relative z-0 mt-[-120px] md:mt-[-200px] lg:mt-[-200px]">
+            <div id="road-animation" className="flex w-[200%]">
+              <img src={road} alt="Road" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" fetchpriority="high" />
+              <img src={road} alt="Road duplicate" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" fetchpriority="high" />
+            </div>
+          </div>
 
 
-  {/* carRoad image on top of the moving road */}
-<div className="absolute bottom-[390px] md:bottom-[310px] lg:bottom-[270px] xl:bottom-[200px] md:left-[100px] lg:left-[240px] z-10 group">
-  <img
-    src={carRoad}
-    alt="Car on road"
-    className="h-[130px] xl:h-[280px] md:h-[180px] lg:h-[250px] w-auto 
+          {/* carRoad image on top of the moving road */}
+          <div className="absolute bottom-[390px] md:bottom-[310px] lg:bottom-[270px] xl:bottom-[200px] md:left-[100px] lg:left-[240px] z-10 group">
+            <img
+              src={carRoad}
+              alt="Car on road"
+              className="h-[130px] xl:h-[280px] md:h-[180px] lg:h-[250px] w-auto 
                transition-transform duration-700 ease-in-out group-hover:scale-105" fetchpriority="high"
-  />
-</div>
+            />
+          </div>
 
-</section>
+        </section>
 
 
 
@@ -686,11 +686,11 @@ useEffect(() => {
               </p>
 
               {/* Desktop Button */}
-  <div className="hidden lg:inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.3)]" onClick={toggleText}>
-  <button className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-3 px-6 transition duration-300">
-    {showMore ? "SHOW LESS" : "LEARN MORE"}
-  </button>
-</div>
+              <div className="hidden lg:inline-block bg-white p-1 shadow-[0_4px_12px_rgba(0,0,0,0.3)]" onClick={toggleText}>
+                <button className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-3 px-6 transition duration-300">
+                  {showMore ? "SHOW LESS" : "LEARN MORE"}
+                </button>
+              </div>
 
               {/* Mobile Button */}
               <div className="flex justify-center animate-item">
@@ -724,7 +724,7 @@ useEffect(() => {
               ))}
             </div>
           </div>
-          <AboutAnimation/>
+          <AboutAnimation />
         </section>
 
         {/* Service  */}
@@ -733,70 +733,72 @@ useEffect(() => {
           ref={serviceRef}
           id="services"
         >
-      <div>
-        <div className="flex justify-center flex-col items-center animate-item">
-          <h1 className="text-xl md:text-2xl font-medium">Our Services</h1>
-          <div className="h-[2px] w-24 bg-[#F78430] mt-1"></div>
-          <p className="max-w-3xl text-base text-center mt-4 text-[#828282] animate-item">
-            We offer complete car care solutions, from routine maintenance
-            to advanced repairs. <br />
-            With skilled technicians and modern equipment, your vehicle
-            gets the expert attention it deserves. <br />
-            Whether it’s performance, safety, or style – we’ve got every
-            part of your car covered.
-          </p>
-        </div>
+          <div>
+            <div className="flex justify-center flex-col items-center animate-item">
+              <h1 className="text-xl md:text-2xl font-medium">Our Services</h1>
+              <div className="h-[2px] w-24 bg-[#F78430] mt-1"></div>
+              <p className="max-w-3xl text-base text-center mt-4 text-[#828282] animate-item">
+                We offer complete car care solutions, from routine maintenance
+                to advanced repairs. <br />
+                With skilled technicians and modern equipment, your vehicle
+                gets the expert attention it deserves. <br />
+                Whether it’s performance, safety, or style – we’ve got every
+                part of your car covered.
+              </p>
+            </div>
 
 
 
 
-        {/* Swiper Carousel */}
-        <div className="py-6 px-6 md:px-12 mt-2 relative">
-          <Swiper
-            modules={[Pagination, Navigation]}
-            spaceBetween={20}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-              navigation={{
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-              },
-            }}
-            className="!pb-10"
-          >
-            {services.map((service, index) => (
-              <SwiperSlide key={index}>
-                <Link to={service.link} state={{ from: 'services' }}>
-                  <div className="bg-white w-full rounded-2xl shadow-xl overflow-hidden animate-item">
-                    <img
-                      src={service.image}
-                      loading="lazy"
-                      alt={service.title}
-                      className="w-full md:h-72 h-52 object-cover"
-                    />
-                    <div className="p-6 text-center">
-                      <h3 className="text-xl font-semibold text-black mb-3">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+            {/* Swiper Carousel */}
+            <div className="py-6 px-6 md:px-12 mt-2 relative">
+              <Swiper
+                modules={[Pagination, Navigation]}
+                spaceBetween={20}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                navigation={{
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                  },
+                }}
+                className="!pb-10"
+              >
+                {services.map((service, index) => (
+                  <SwiperSlide key={index}>
+                    <Link to={service.link} state={{ from: 'services' }}>
+                      <div className="bg-white w-full rounded-2xl shadow-xl overflow-hidden animate-item">
+                        <img
+                          src={service.image}
+                          loading="lazy"
+                          decoding="async"
+                          fetchpriority="low"
+                          alt={service.title}
+                          className="w-full md:h-72 h-52 object-cover"
+                        />
+                        <div className="p-6 text-center">
+                          <h3 className="text-xl font-semibold text-black mb-3">
+                            {service.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm">
+                            {service.description}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
 
-        {/* <div className="py-6 px-6 md:px-12 mt-2 relative">
+            {/* <div className="py-6 px-6 md:px-12 mt-2 relative">
   <Swiper
     modules={[Pagination, Navigation]}
     spaceBetween={20}
@@ -841,8 +843,8 @@ useEffect(() => {
   </Swiper>
 </div> */}
 
-      </div>
-    </section>
+          </div>
+        </section>
 
         {/* Brand We Serve  */}
 
@@ -878,20 +880,22 @@ useEffect(() => {
             <h1 className="text-center text-2xl md:text-5xl font-semibold leading-relaxed">
               LATEST PROJECTS
             </h1>
- <div className="mt-10 overflow-hidden mb-6" ref={scrollRef}>
-          {/* ✅ Animated Image Row */}
-          <div className="flex gap-4 w-max" ref={imageRowRef}>
-            {[project1, project2, project3, project4, project5, project6, project7,project1, project2, project3, project4, project5, project6, project7,project1, project2, project3, project4, project5, project6, project7,project1, project2, project3, project4, project5, project6, project7].map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                loading="lazy"
-                alt={`Project ${index + 1}`}
-                className="w-[300px] h-[300px] md:w-[400px] md:h-[300px] object-cover flex-shrink-0"
-              />
-            ))}
-          </div>
-        </div>
+            <div className="mt-10 overflow-hidden mb-6" ref={scrollRef}>
+              {/* ✅ Animated Image Row */}
+              <div className="flex gap-4 w-max" ref={imageRowRef}>
+                {[project1, project2, project3, project4, project5, project6, project7, project1, project2, project3, project4, project5, project6, project7, project1, project2, project3, project4, project5, project6, project7, project1, project2, project3, project4, project5, project6, project7].map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
+                    alt={`Project ${index + 1}`}
+                    className="w-[300px] h-[300px] md:w-[400px] md:h-[300px] object-cover flex-shrink-0"
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -964,18 +968,24 @@ useEffect(() => {
                 alt="Car service"
                 loading="lazy"
                 className="w-full h-[180px] object-cover rounded-2xl"
+                decoding="async"
+                fetchpriority="low"
               />
               <img
                 src={why2}
                 alt="Car tools"
                 loading="lazy"
                 className="w-full h-[180px] object-cover rounded-2xl"
+                decoding="async"
+                fetchpriority="low"
               />
               <img
                 src={why3}
                 alt="Car repair"
                 loading="lazy"
                 className="w-full h-[180px] object-cover rounded-2xl"
+                decoding="async"
+                fetchpriority="low"
               />
             </div>
           </div>
@@ -1007,11 +1017,12 @@ useEffect(() => {
                     src={testimonial.src}
                     alt={testimonial.name}
                     loading="lazy"
-                     className={`w-24 h-24 md:w-28 md:h-[420px] object-cover cursor-pointer border-2 transition hover:scale-105 ${
-    selectedIndex === index
-      ? "border-gray-400 filter-none"
-      : "border-black filter grayscale"
-  }`}
+                    className={`w-24 h-24 md:w-28 md:h-[420px] object-cover cursor-pointer border-2 transition hover:scale-105 ${selectedIndex === index
+                      ? "border-gray-400 filter-none"
+                      : "border-black filter grayscale"
+                      }`}
+                    decoding="async"
+                    fetchpriority="low"
                     onClick={() =>
                       setSelectedIndex((prev) =>
                         prev === index ? null : index
@@ -1023,7 +1034,7 @@ useEffect(() => {
                   {selectedIndex === index && (
                     <>
 
-                      <div   ref={testimonialBoxRef} className=" w-64 md:w-80 bg-white p-4 rounded-lg shadow-lg flex flex-col justify-center items-start">
+                      <div ref={testimonialBoxRef} className=" w-64 md:w-80 bg-white p-4 rounded-lg shadow-lg flex flex-col justify-center items-start">
                         <div className="flex justify-between gap-22 items-center">
                           <div>
                             <h3 className="text-lg font-semibold text-black">
@@ -1060,74 +1071,75 @@ useEffect(() => {
             </div>
 
             {/* mobile  */}
-<div className="px-2 md:hidden">
-      {/* Testimonial Cards */}
-      <div className="grid grid-cols-1 gap-4 bg-white">
-        {visibleTestimonials.map((testimonial, index) => (
-          <div key={index}>
-            <div
-              onClick={() =>
-                setSelectedIndex((prev) => (prev === index ? null : index))
-              }
-            className={`flex flex-col shadow-md border rounded-2xl px-4 py-4 gap-4 cursor-pointer hover:bg-gray-50 transition ${
-  selectedIndex === index ? 'border-gray-400' : 'border-black'
-}`}
+            <div className="px-2 md:hidden">
+              {/* Testimonial Cards */}
+              <div className="grid grid-cols-1 gap-4 bg-white">
+                {visibleTestimonials.map((testimonial, index) => (
+                  <div key={index}>
+                    <div
+                      onClick={() =>
+                        setSelectedIndex((prev) => (prev === index ? null : index))
+                      }
+                      className={`flex flex-col shadow-md border rounded-2xl px-4 py-4 gap-4 cursor-pointer hover:bg-gray-50 transition ${selectedIndex === index ? 'border-gray-400' : 'border-black'
+                        }`}
 
-            >
-              {/* Top Section: Image + Text */}
-              <div className="flex items-center gap-4">
-                <img
-                  src={testimonial.src}
-                  alt={testimonial.name}
-                  className="w-20 h-20 rounded-full object-cover border-2 border-gray-300 transition"
-                />
+                    >
+                      {/* Top Section: Image + Text */}
+                      <div className="flex items-center gap-4">
+                        <img
+                          src={testimonial.src}
+                          alt={testimonial.name}
+                          className="w-20 h-20 rounded-full object-cover border-2 border-gray-300 transition"
+                          decoding="async"
+                          fetchpriority="low"
+                        />
 
-                <div className="flex w-full justify-between items-center">
-                  <div>
-                    <h3 className="text-lg font-semibold text-black">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                        <div className="flex w-full justify-between items-center">
+                          <div>
+                            <h3 className="text-lg font-semibold text-black">
+                              {testimonial.name}
+                            </h3>
+                            <p className="text-sm text-gray-500">{testimonial.role}</p>
+                          </div>
+                          <div className="text-yellow-500 text-lg">
+                            {"★".repeat(testimonial.rating)}
+                            {"☆".repeat(5 - testimonial.rating)}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Review Box */}
+                      {selectedIndex === index && (
+                        <div className="bg-white p-3" ref={testimonialBoxRef}>
+                          <p className="text-gray-700 italic">"{testimonial.review}"</p>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedIndex(null);
+                            }}
+                            className="mt-2 text-sm text-blue-500 hover:underline"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <div className="text-yellow-500 text-lg">
-                    {"★".repeat(testimonial.rating)}
-                    {"☆".repeat(5 - testimonial.rating)}
-                  </div>
-                </div>
+                ))}
               </div>
 
-              {/* Review Box */}
-              {selectedIndex === index && (
-                <div className="bg-white p-3"    ref={testimonialBoxRef}>
-                  <p className="text-gray-700 italic">"{testimonial.review}"</p>
+              {/* View More / View Less Button */}
+              {testimonials.length > 3 && (
+                <div className="flex justify-center mt-4">
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedIndex(null);
-                    }}
-                    className="mt-2 text-sm text-blue-500 hover:underline"
+                    onClick={() => setShowAll((prev) => !prev)}
+                    className="text-black text-base font-bold  hover:text-red-600"
                   >
-                    Close
+                    {showAll ? "View Less ▴" : "View More ▾"}
                   </button>
                 </div>
               )}
             </div>
-          </div>
-        ))}
-      </div>
-
-      {/* View More / View Less Button */}
-      {testimonials.length > 3 && (
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => setShowAll((prev) => !prev)}
-            className="text-black text-base font-bold  hover:text-red-600"
-          >
-            {showAll ? "View Less ▴" : "View More ▾"}
-          </button>
-        </div>
-      )}
-    </div>
           </div>
         </section>
 
@@ -1161,16 +1173,16 @@ useEffect(() => {
               </p>
 
               <h3 className="text-2xl font-semibold mb-2 md:block hidden">
-  Contact
-</h3>
+                Contact
+              </h3>
 
-<a href="mailto:info@revive-auto.in" className="text-gray-600 md:block hidden ">
-  info@revive-auto.in
-</a>
+              <a href="mailto:info@revive-auto.in" className="text-gray-600 md:block hidden ">
+                info@revive-auto.in
+              </a>
 
-<a href="tel:+917382661199" className="text-gray-600 md:block hidden ">
-  +91-7382661199
-</a>
+              <a href="tel:+917382661199" className="text-gray-600 md:block hidden ">
+                +91-7382661199
+              </a>
 
             </div>
 
@@ -1228,27 +1240,27 @@ useEffect(() => {
                   />
                 </div>
 
-            <div>
-  <label htmlFor="service" className="block mb-1 font-medium text-gray-700">
-    Service
-  </label>
-  <select
-    name="service"
-    value={formData.service}
-    onChange={(e) =>
-      setFormData({ ...formData, service: e.target.value })
-    }
-    className="w-full mt-1 rounded-lg border border-gray-300 bg-white p-3 shadow-sm transition-all duration-200 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none"
-  >
-    <option value="">Select a service</option>
-    <option value="Oil Change">Oil Change</option>
-    <option value="Brake Inspection">Brake Inspection</option>
-    <option value="Engine Diagnostics">Engine Diagnostics</option>
-    <option value="Tire Rotation">Tire Rotation</option>
-    <option value="Full Car Service">Full Car Service</option>
-    <option value="Custom Repair">Custom Repair</option>
-  </select>
-</div>
+                <div>
+                  <label htmlFor="service" className="block mb-1 font-medium text-gray-700">
+                    Service
+                  </label>
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={(e) =>
+                      setFormData({ ...formData, service: e.target.value })
+                    }
+                    className="w-full mt-1 rounded-lg border border-gray-300 bg-white p-3 shadow-sm transition-all duration-200 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="Oil Change">Oil Change</option>
+                    <option value="Brake Inspection">Brake Inspection</option>
+                    <option value="Engine Diagnostics">Engine Diagnostics</option>
+                    <option value="Tire Rotation">Tire Rotation</option>
+                    <option value="Full Car Service">Full Car Service</option>
+                    <option value="Custom Repair">Custom Repair</option>
+                  </select>
+                </div>
 
 
                 <div>
@@ -1294,15 +1306,14 @@ useEffect(() => {
                 />
               </div>
 
-             <button
-  type="submit"
-  disabled={loading}
-  className={`w-full bg-red-600 text-white py-2 mt-4 font-semibold transition-colors duration-200 ${
-    loading ? 'bg-red-400 cursor-not-allowed' : 'hover:bg-red-700 cursor-pointer'
-  }`}
->
-  {loading ? "Booking..." : "Book An Appointment"}
-</button>
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full bg-red-600 text-white py-2 mt-4 font-semibold transition-colors duration-200 ${loading ? 'bg-red-400 cursor-not-allowed' : 'hover:bg-red-700 cursor-pointer'
+                  }`}
+              >
+                {loading ? "Booking..." : "Book An Appointment"}
+              </button>
 
             </form>
             <ToastContainer
