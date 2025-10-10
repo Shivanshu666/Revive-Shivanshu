@@ -104,7 +104,7 @@ const Footer = () => {
 
           </p>
            <p className="text-black font-medium">
-  Developed by{" "}
+  Build by{" "}
   <a
     href="https://www.zenithstudio.in/"
     target="_blank"
@@ -194,7 +194,7 @@ const Footer = () => {
             <span>All Rights Reserved</span>
           </p>
                  <p className="text-black font-medium mt-2">
-  Developed by{" "}
+   Build by{" "}
   <a
     href="https://www.zenithstudio.in/"
     target="_blank"
