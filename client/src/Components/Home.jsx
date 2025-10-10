@@ -820,6 +820,52 @@ useEffect(() => {
             ))}
           </Swiper>
         </div>
+
+        {/* <div className="py-6 px-6 md:px-12 mt-2 relative">
+  <Swiper
+    modules={[Pagination, Navigation]}
+    spaceBetween={20}
+    slidesPerView={1}
+    pagination={{ clickable: true }}
+    navigation={{
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }}
+    breakpoints={{
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    }}
+    className="!pb-10"
+  >
+    {services.map((service, index) => (
+      <SwiperSlide key={index}>
+        <Link to={service.link} state={{ from: 'services' }}>
+          <div className="bg-white w-full h-[400px] rounded-2xl shadow-xl overflow-hidden flex flex-col animate-item">
+            <img
+              src={service.image}
+              loading="lazy"
+              alt={service.title}
+              className="w-full h-[200px] object-cover"
+            />
+            <div className="p-6 text-center flex-grow flex flex-col justify-start">
+              <h3 className="text-2xl font-bold text-black mb-1">
+                {service.title}
+              </h3>
+              <p className="text-base text-gray-700 leading-snug">
+                {service.description}
+              </p>
+            </div>
+          </div>
+        </Link>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div> */}
+
       </div>
     </section>
 

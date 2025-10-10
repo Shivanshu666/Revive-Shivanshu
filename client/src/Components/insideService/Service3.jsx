@@ -1,9 +1,23 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import service3 from '../../assets/service/insideService/service3.webp';
 
 const Service3 = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+  // Default fallback if no state is passed
+  const from = location.state?.from || 'services';
+
+  const handleBack = () => {
+    if (from === 'footer') {
+      navigate('/#footer-section');
+    } else if (from === 'services') {
+      navigate('/#services');
+    } else {
+      navigate(-1); // fallback to previous page
+    }
+  };
 
     return (
         <>
@@ -21,7 +35,7 @@ const Service3 = () => {
 
                 {/* Back Button */}
                 <button
-                    onClick={() => navigate(-1)}
+                  onClick={handleBack}
                     className="absolute top-6 left-6 z-20 bg-white/80 hover:bg-white text-black px-4 py-2 rounded-md shadow-md transition"
                 >
                     ← Back
@@ -56,7 +70,7 @@ const Service3 = () => {
 
                     {/* Back Button */}
                     <button
-                     onClick={() => navigate('/#footer-section')}
+                    onClick={handleBack}
                         className="absolute top-4 left-4 z-20 bg-white/80 test-sm hover:bg-white text-black px-3 py-1 md:px-4 md:py-2 rounded-md shadow-md transition"
                     >
                         ← Back

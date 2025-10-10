@@ -1,5 +1,4 @@
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaYoutube} from "react-icons/fa";
-import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom"
 import logo from '../assets/logo.png';
 import red1 from "../assets/Footer/footerback1.webp"
@@ -77,11 +76,11 @@ const Footer = () => {
     </div>
 
     {/* OTHER SERVICES */}
-    <div className="flex flex-col w-full md:w-1/3">
+    <div className="flex flex-col w-full md:w-1/3 z-44">
       <h3 className="text-lg font-bold text-black mb-3">OTHER SERVICES</h3>
       <ul className="space-y-2 text-sm font-medium">
         <li><Link className="hover:text-red-600 cursor-pointer" to='/footerGrap' state={{ from: 'footer' }}>GRAPHENE COATING</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerVag' state={{ from:'footer'}}>VAG CODING & VCDS</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer inline-block w-full" to='/footerVag' state={{ from:'footer'}}>VAG CODING & VCDS</Link></li>
         <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash' state={{ from: 'footer' }}>CAR WASHING</Link></li>
       </ul>
     </div>
@@ -122,7 +121,7 @@ const Footer = () => {
 
       {/* // MOBILE  */}
 
-      <footer className="md:hidden block relative px-4 bg-white text-gray-700 overflow-hidden scroll-mt-34">
+      <footer className="md:hidden block relative px-4 bg-white text-gray-700 overflow-hidden scroll-mt-34" id='footer-section'>
  {/* Red Curved Background Top Left */}
         <div className="absolute bottom-[60px] left-0 w-[380px] h-40  rounded-br-[100%]"><img src={red4} alt="" /></div>
         <div className="absolute bottom-[20px] left-0 w-[380px]  h-40  rounded-br-[100%]"><img src={red3} alt="" /></div>
@@ -157,9 +156,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-black mb-3">OUR SERVICES</h3>
             <ul className="space-y-2 text-sm font-medium">
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake'>BRAKE SERVICE & REPLACEMENT</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerCeremic'>CERAMIC COATING</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerTransmission'>TRANSMISSION</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerBrake' state={{ from: 'footer'}}>BRAKE SERVICE & REPLACEMENT</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerCeremic' state={{ from: 'footer'}}>CERAMIC COATING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerTransmission' state={{ from: 'footer'}}>TRANSMISSION</Link></li>
       </ul>
           </div>
 
@@ -167,9 +166,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-black mb-3">CONTACT US</h3>
              <ul className="space-y-2 text-sm font-medium">
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerGrap'>GRAPHENE COATING</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerVag'>VAG CODING & VCDS</Link></li>
-        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash'>CAR WASHING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerGrap' state={{ from: 'footer'}}>GRAPHENE COATING</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerVag' state={{ from: 'footer'}}>VAG CODING & VCDS</Link></li>
+        <li><Link className="hover:text-red-600 cursor-pointer" to='/footerWash' state={{ from: 'footer'}}>CAR WASHING</Link></li>
       </ul>
           </div>
           <div className="flex flex-col justify-between">

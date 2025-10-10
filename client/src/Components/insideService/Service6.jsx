@@ -1,9 +1,22 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import service6 from '../../assets/service/insideService/service6.jpg';
 
 const Service6 = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+const from = location.state?.from || 'services';
+    console.log('from : ' ,location.state?.from )
+  
+    const handleBack = () => {
+      if (from === 'footer') {
+        navigate('/#footer-section');
+      } else if (from === 'services') {
+        navigate('/#services');
+      } else {
+        navigate(-1); // fallback to previous page
+      }
+    };
 
     return (
         <>
@@ -21,7 +34,7 @@ const Service6 = () => {
 
                 {/* Back Button */}
                 <button
-                     onClick={() => navigate('/#footer-section')}
+                    onClick={handleBack}
                     className="absolute top-6 left-6 z-20 bg-white/80 hover:bg-white text-black px-4 py-2 rounded-md shadow-md transition"
                 >
                     ← Back
@@ -39,7 +52,6 @@ const Service6 = () => {
                 </div>
             </div>
 
-
             {/* mobile  */}
             <div className="md:hidden block w-full h-screen">
                 {/* 40% IMAGE SECTION */}
@@ -55,12 +67,12 @@ const Service6 = () => {
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
 
                     {/* Back Button */}
-                    {/* <button
-                        onClick={() => navigate(-1)}
+                    <button
+                         onClick={handleBack}
                         className="absolute top-4 left-4 z-20 bg-white/80 test-sm hover:bg-white text-black px-3 py-1 md:px-4 md:py-2 rounded-md shadow-md transition"
                     >
                         ← Back
-                    </button> */}
+                    </button>
 
                     {/* Title at Bottom of Image */}
                     <div className="absolute bottom-4 left-0 right-0 z-20 text-center px-4">
