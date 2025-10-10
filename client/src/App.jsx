@@ -11,6 +11,7 @@ import Service4 from './Components/insideService/Service4';
 import Service5 from './Components/insideService/Service5';
 import Service6 from './Components/insideService/Service6';
 import Sample from './Components/HeroSection';
+import ScrollToHashElement from './ScrollToHash';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -30,6 +31,7 @@ const AppWrapper = () => {
     <>
       {!shouldHide && <Navbar />}
       {/* <ScrollToTopOnRefresh /> */}
+       <ScrollToHashElement />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route index element={<Home />} />

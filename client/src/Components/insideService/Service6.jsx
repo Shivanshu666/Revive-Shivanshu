@@ -67,12 +67,12 @@ const from = location.state?.from || 'services';
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
 
                     {/* Back Button */}
-                    <button
+                    {/* <button
                          onClick={handleBack}
                         className="absolute top-4 left-4 z-20 bg-white/80 test-sm hover:bg-white text-black px-3 py-1 md:px-4 md:py-2 rounded-md shadow-md transition"
                     >
                         ← Back
-                    </button>
+                    </button> */}
 
                     {/* Title at Bottom of Image */}
                     <div className="absolute bottom-4 left-0 right-0 z-20 text-center px-4">

@@ -598,19 +598,6 @@ useEffect(() => {
   });
 }, []);
 
-  ///////
-  // Footer logic 
-    useEffect(() => {
-    if (location.hash === '#home') {
-      const footerEl = document.getElementById('home');
-      if (footerEl) {
-        // Add delay in case Footer is rendered after this effect
-        setTimeout(() => {
-          footerEl.scrollIntoView({ behavior: 'auto' });
-        }, 100); 
-      }
-    }
-  }, [location]);
   /////
   return (
     <>
