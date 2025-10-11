@@ -19,7 +19,7 @@ import "swiper/css/pagination";
 import bghero from "../assets/Home/bghero.png";
 import redBox from "../assets/Home/redBox.png"
 import car1 from "../assets/Home/car1.webp"
-import road from "../assets/Home/road.png"
+import road from "../assets/Home/road1.png"
 import carRoad from "../assets/Home/porcheRoad.webp"
 
 
@@ -573,7 +573,7 @@ const Home = () => {
 
   // ROad ANimation 
 
-  useEffect(() => {
+    useEffect(() => {
     gsap.to("#road-animation", {
       xPercent: -50,
       duration: 10,
@@ -640,12 +640,22 @@ const Home = () => {
           </div>
 
           {/* Road image animation (background) */}
-          <div className="overflow-hidden w-full relative z-0 mt-[-120px] md:mt-[-200px] lg:mt-[-200px]">
-            <div id="road-animation" className="flex w-[200%]">
-              <img src={road} alt="Road" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" fetchpriority="high" />
-              <img src={road} alt="Road duplicate" className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px]" fetchpriority="high" />
-            </div>
-          </div>
+         <div className="overflow-hidden w-full relative z-0 mt-[-120px] md:mt-[-200px] lg:mt-[-200px]">
+  <div id="road-animation" className="flex w-[200%]">
+    <img
+      src={road}
+      alt="Road"
+      className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px] block object-cover"
+      fetchpriority="high"
+    />
+    <img
+      src={road}
+      alt="Road duplicate"
+      className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px] block object-cover"
+      fetchpriority="high"
+    />
+  </div>
+</div>
 
 
           {/* carRoad image on top of the moving road */}

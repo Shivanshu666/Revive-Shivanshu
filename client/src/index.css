@@ -179,3 +179,7 @@ html {
     width: 350px !important;
   }
 }
+
+#road-animation {
+  line-height: 0;
+}
