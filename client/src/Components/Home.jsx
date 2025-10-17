@@ -154,7 +154,7 @@ const Home = () => {
             y: 0,
             opacity: 1,
             filter: "blur(0px)",
-            duration: 1,
+            duration: 0.5,
             stagger: 0.2,
             ease: "power2.out",
             scrollTrigger: {
@@ -180,7 +180,7 @@ const Home = () => {
               y: 0,
               opacity: 1,
               filter: "blur(0px)",
-              duration: 1,
+              duration: 0.5,
               ease: "power2.out",
               stagger: 0.2,
               scrollTrigger: {
@@ -205,7 +205,7 @@ const Home = () => {
           x: 0,
           opacity: 1,
           filter: "blur(0px)",
-          duration: 1,
+          duration: 0.5,
           ease: "power2.out",
           stagger: 0.2, // ek ek karke aayenge
           scrollTrigger: {
@@ -247,7 +247,7 @@ const Home = () => {
             x: 0,
             opacity: 1,
             filter: "blur(0px)",
-            duration: 1,
+            duration: 0.5,
             stagger: 0.2,
             ease: "power2.out",
             scrollTrigger: {
@@ -268,7 +268,7 @@ const Home = () => {
             x: 0,
             opacity: 1,
             filter: "blur(0px)",
-            duration: 1,
+            duration: 0.5,
             stagger: 0.3,
             ease: "power2.out",
             scrollTrigger: {
