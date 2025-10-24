@@ -49,20 +49,21 @@ import why2 from "../assets/whyChoose/why2.webp";
 import why3 from "../assets/whyChoose/why3.webp";
 
 // Latest Project
-import project1 from "../assets/Project/project1.webp";
-import project2 from "../assets/Project/project2.webp";
-import project3 from "../assets/Project/project3.webp";
-import project4 from "../assets/Project/project4.jpg";
-import project5 from "../assets/Project/project5.webp";
-import project6 from "../assets/Project/project6.webp";
-import project7 from "../assets/Project/project7.webp";
+import project1 from "../assets/Project/p1.webp";
+import project2 from "../assets/Project/p2.webp";
+import project3 from "../assets/Project/p3.webp";
+import project4 from "../assets/Project/p4.JPG";
+import project5 from "../assets/Project/p5.JPG";
+import project6 from "../assets/Project/p6.JPG";
+import project7 from "../assets/Project/p7.JPG";
+import project8 from "../assets/Project/p8.JPG";
+import project9 from "../assets/Project/p9.JPG";
+import project10 from "../assets/Project/p10.JPG";
+import project11 from "../assets/Project/p11.JPG";
+import project12 from "../assets/Project/p12.JPG";
+import project13 from "../assets/Project/p13.JPG";
 
 
-// Testinomials
-import testi1 from "../assets/testinomials/testi1.webp";
-import testi2 from "../assets/testinomials/testi2.webp";
-import testi3 from "../assets/testinomials/testi3.webp";
-import testi4 from "../assets/testinomials/testi4.jpg";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -443,39 +444,71 @@ const Home = () => {
 
   const testimonials = [
     {
-      name: "Peter Parker",
-      role: "Retired Officer",
-      src: testi1,
-      review:
-        "Amazing service! The team quickly diagnosed the issue with my car and fixed it the same day. Very professional and friendly staff.",
+      name: "Bala",
+      role: "8 months ago",
+      review: "Knowledgeable owner and provides perfect guidance for your cars well being .",
       rating: 5,
     },
     {
-      name: "John Smith",
-      role: "Engineer",
-      src: testi2,
-      review:
-        "Quick, efficient, and reliable service. Highly recommend them for all car needs!",
+      name: "Shazaib Ahmed",
+      role: "A year ago",
+      review: "When Passion meets Automobile industry, Revive Auto Studio and Garage is born. This is the one liner which explains this Garage.",
       rating: 4,
     },
     {
-      name: "Sophia Lee",
-      role: "Designer",
-      src: testi3,
-      review:
-        "Super friendly staff and excellent communication. My car feels brand new!",
+      name: "Dhiraj varma",
+      role: "10 months ago",
+      review: "Amazing job done by the passionate team at ReviveAuto. Complete service done with break pads replacement.",
+      rating: 5,
+    },
+    // {
+    //   name: "Raj P",
+    //   role: "5 months ago",
+    //   review: "Bhushan is an experienced petrolhead and a passionate auto enthusiast. His and his team's love for autos shows in every job they take up. His chill team works their magic, treating every ride like it's their baby. Detailing, repairs or mods, Revive and team are a great team to get your work done.",
+    //   rating: 5,
+    // },
+    {
+      name: "Anay Raut",
+      role: "9 months ago",
+      review: "Had a great experience with Revive auto studio and garage for my car dent and detailing issue. Very nice people. They know their job well.",
       rating: 5,
     },
     {
-      name: "Sophia Lee",
-      role: "Designer",
-      src: testi4,
-      review:
-        "Super friendly staff and excellent communication. My car feels brand new!",
+      name: "Control Theorist ",
+      role: "A year ago",
+      review: "Very Good service. They fixed an aftermarket cruise control and dash cam so professionally. I like their service.",
+      rating: 5,
+    },
+    {
+      name: "Murali Krishna",
+      role: "8 months ago",
+      review: "My first time experience was amazing. Would prefer to visit again.",
       rating: 5,
     },
   ];
 
+
+  const [selectedIndex1, setSelectedIndex1] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+
+
+  const handlePrev = () => {
+    if (!swiperInstance) return;
+
+    const prevIndex =
+      selectedIndex1 === 0 ? testimonials.length - 1 : selectedIndex1 - 1;
+    setSelectedIndex1(prevIndex);
+    swiperInstance.slideToLoop(prevIndex);
+  };
+
+  const handleNext = () => {
+    if (!swiperInstance) return;
+
+    const nextIndex =
+      selectedIndex1 === testimonials.length - 1 ? 0 : selectedIndex1 + 1;
+    setSelectedIndex1(nextIndex);
+    swiperInstance.slideToLoop(nextIndex);
+  };
 
   ///
 
@@ -573,7 +606,7 @@ const Home = () => {
 
   // ROad ANimation 
 
-    useEffect(() => {
+  useEffect(() => {
     gsap.to("#road-animation", {
       xPercent: -50,
       duration: 10,
@@ -640,22 +673,22 @@ const Home = () => {
           </div>
 
           {/* Road image animation (background) */}
-         <div className="overflow-hidden w-full relative z-0 mt-[-120px] md:mt-[-200px] lg:mt-[-200px]">
-  <div id="road-animation" className="flex w-[200%]">
-    <img
-      src={road}
-      alt="Road"
-      className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px] block object-cover"
-      fetchpriority="high"
-    />
-    <img
-      src={road}
-      alt="Road duplicate"
-      className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px] block object-cover"
-      fetchpriority="high"
-    />
-  </div>
-</div>
+          <div className="overflow-hidden w-full relative z-0 mt-[-120px] md:mt-[-200px] lg:mt-[-200px]">
+            <div id="road-animation" className="flex w-[200%]">
+              <img
+                src={road}
+                alt="Road"
+                className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px] block object-cover"
+                fetchpriority="high"
+              />
+              <img
+                src={road}
+                alt="Road duplicate"
+                className="w-1/2 h-[110px] md:h-[150px] lg:h-[170px] block object-cover"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
 
 
           {/* carRoad image on top of the moving road */}
@@ -669,7 +702,6 @@ const Home = () => {
           </div>
 
         </section>
-
 
 
 
@@ -893,7 +925,7 @@ const Home = () => {
             <div className="mt-10 overflow-hidden mb-6" ref={scrollRef}>
               {/* ✅ Animated Image Row */}
               <div className="flex gap-4 w-max" ref={imageRowRef}>
-                {[project1, project2, project3, project4, project5, project6, project7, project1, project2, project3, project4, project5, project6, project7, project1, project2, project3, project4, project5, project6, project7, project1, project2, project3, project4, project5, project6, project7].map((img, index) => (
+                {[project1, project2, project3, project4, project5, project6, project7, project8, project9, project10, project11, project12, project13, project1, project2, project3, project4, project5, project6, project7, project8, project9, project10, project11, project12, project13, project1, project2, project3, project4, project5, project6, project7, project8, project9, project10, project11, project12, project13,].map((img, index) => (
                   <img
                     key={index}
                     src={img}
@@ -1002,153 +1034,84 @@ const Home = () => {
         </section>
 
         {/* // testinomials */}
-        <section className=" w-full py-16  md:mt-[100px] scroll-mt-6" id='testimonial'>
+        <section
+          className="max-w-6xl mx-auto py-16 md:mt-[100px] scroll-mt-6"
+          id="testimonial"
+        >
           <div className="w-full mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-1">
               What Our Customers Say
             </h2>
-            <div className="md:flex lg:hidden justify-center items-center mb-12">
-              <h2 className="text-5xl font-semibold">
-                Real Stories. <br /> Real Experiences.
-              </h2>
-            </div>
+
+            <h2 className="text-xl text-center font-semibold">
+              Real Stories. Real Experiences.
+            </h2>
+
             {/* Horizontal Layout */}
-            {/* desktop/laptop  */}
-            <div className="md:flex gap-8 justify-center flex-wrap hidden">
-              <div className="lg:flex hidden justify-center items-center">
-                <h2 className="text-5xl font-semibold">
-                  Real Stories.<br></br> Real Experiences.
-                </h2>
-              </div>
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="relative flex">
-                  {/* Image */}
-                  <img
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    loading="lazy"
-                    className={`w-24 h-24 md:w-28 md:h-[420px] object-cover cursor-pointer border-2 transition hover:scale-105 ${selectedIndex === index
-                      ? "border-gray-400 filter-none"
-                      : "border-black filter grayscale"
-                      }`}
-                    decoding="async"
-                    fetchpriority="low"
-                    onClick={() =>
-                      setSelectedIndex((prev) =>
-                        prev === index ? null : index
-                      )
-                    }
-                  />
+            <div className="py-6 px-4 md:px-12 mt-4 md:bottom-[-80px] relative">
+              {/* Background Layer */}
+            <div className="absolute inset-0 flex justify-center items-center z-0">
+    <div className="w-full max-w-[700px] h-[390px] sm:h-[400px] md:h-[500px] bg-[#FFEEEE] rounded-lg mx-auto"></div>
+  </div>
 
-                  {/* Testimonial Box (right side of image) */}
-                  {selectedIndex === index && (
-                    <>
-
-                      <div ref={testimonialBoxRef} className=" w-64 md:w-80 bg-white p-4 rounded-lg shadow-lg flex flex-col justify-center items-start">
-                        <div className="flex justify-between gap-22 items-center">
-                          <div>
-                            <h3 className="text-lg font-semibold text-black">
-                              {testimonial.name}
-                            </h3>
-                            <p className="text-sm text-gray-500">
-                              {testimonial.role}
-                            </p>
-                          </div>
-                          <div>
-                            {" "}
-                            <div className="mt-1 text-xl text-yellow-500">
-                              {"★".repeat(testimonial.rating)}
-                              {"☆".repeat(5 - testimonial.rating)}
-                            </div>
-                          </div>
-                        </div>
-
-                        <p className="text-[#010101] font-medium mt-2">
-                          "{testimonial.review}"
-                        </p>
-
-                        <button
-                          onClick={() => setSelectedIndex(null)}
-                          className="mt-2 text-sm hover:cursor-pointer text-blue-500 hover:underline"
-                        >
-                          Close
-                        </button>
+              {/* Swiper Carousel */}
+              <Swiper
+                modules={[Navigation,]}
+                spaceBetween={20}
+                slidesPerView={1}
+                onSwiper={setSwiperInstance}
+                pagination={{ clickable: true }}
+                loop={true}
+                breakpoints={{
+                  640: { slidesPerView: 1 },
+                  768: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                }}
+                onSlideChange={(swiper) => setSelectedIndex1(swiper.realIndex)}
+                className="relative z-10 !pb-16"
+              >
+                {testimonials.map((testimonial, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="bg-white max-w-[320px] sm:max-w-none h-auto min-h-[270px] shadow-xl overflow-hidden p-6 text-start flex flex-col justify-between mx-auto w-full ">
+                      <div className="mt-2 text-yellow-500 text-lg">
+                        {"★".repeat(testimonial.rating)}
+                        {"☆".repeat(5 - testimonial.rating)}
                       </div>
-                    </>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* mobile  */}
-            <div className="px-2 md:hidden">
-              {/* Testimonial Cards */}
-              <div className="grid grid-cols-1 gap-4 bg-white">
-                {visibleTestimonials.map((testimonial, index) => (
-                  <div key={index}>
-                    <div
-                      onClick={() =>
-                        setSelectedIndex((prev) => (prev === index ? null : index))
-                      }
-                      className={`flex flex-col shadow-md border rounded-2xl px-4 py-4 gap-4 cursor-pointer hover:bg-gray-50 transition ${selectedIndex === index ? 'border-gray-400' : 'border-black'
-                        }`}
-
-                    >
-                      {/* Top Section: Image + Text */}
-                      <div className="flex items-center gap-4">
-                        <img
-                          src={testimonial.src}
-                          alt={testimonial.name}
-                          className="w-20 h-20 rounded-full object-cover border-2 border-gray-300 transition"
-                          decoding="async"
-                          fetchpriority="low"
-                        />
-
-                        <div className="flex w-full justify-between items-center">
-                          <div>
-                            <h3 className="text-lg font-semibold text-black">
-                              {testimonial.name}
-                            </h3>
-                            <p className="text-sm text-gray-500">{testimonial.role}</p>
-                          </div>
-                          <div className="text-yellow-500 text-lg">
-                            {"★".repeat(testimonial.rating)}
-                            {"☆".repeat(5 - testimonial.rating)}
-                          </div>
-                        </div>
+                      <p className="text-[#010101] font-medium mt-4">
+                        "{testimonial.review}"
+                      </p>
+                      <div>
+                        <h3 className="text-xl font-semibold text-black">
+                          {testimonial.name}
+                        </h3>
+                        <p className="text-sm text-gray-500">{testimonial.role}</p>
                       </div>
-
-                      {/* Review Box */}
-                      {selectedIndex === index && (
-                        <div className="bg-white p-3" ref={testimonialBoxRef}>
-                          <p className="text-gray-700 italic">"{testimonial.review}"</p>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedIndex(null);
-                            }}
-                            className="mt-2 text-sm text-blue-500 hover:underline"
-                          >
-                            Close
-                          </button>
-                        </div>
-                      )}
                     </div>
-                  </div>
+                  </SwiperSlide>
                 ))}
-              </div>
+              </Swiper>
 
-              {/* View More / View Less Button */}
-              {testimonials.length > 3 && (
-                <div className="flex justify-center mt-4">
-                  <button
-                    onClick={() => setShowAll((prev) => !prev)}
-                    className="text-black text-base font-bold  hover:text-red-600"
-                  >
-                    {showAll ? "View Less ▴" : "View More ▾"}
-                  </button>
+              {/* Navigation Buttons */}
+              <div className="absolute bottom-[42px] md:bottom-0 left-0 right-0 flex justify-center transform translate-y-1/2 z-20 space-x-4">
+              <div className="px-3 py-2 bg-white">
+
+              
+                <button
+                  onClick={handlePrev}
+                  className="text-black px-4 md:py-2 hover:cursor-pointer   transition"
+                  aria-label="Previous testimonial"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="text-white bg-red-600 px-4 py-2 hover:bg-red-700 hover:cursor-pointer transition"
+                  aria-label="Next testimonial"
+                >
+                  →
+                </button>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </section>

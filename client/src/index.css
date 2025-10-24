@@ -91,91 +91,103 @@ html {
 }
 
 /* mobile  */
-@media (min-width: 320px) and (max-width: 667px) {
+
+@media (min-width: 450px) and (max-width: 502px) {
   #tyre{
-    top: 226px !important;
-    width: 390px !important;
+    top: 358px !important;
+    width: 340px !important;
   }
 }
-@media (min-width: 320px) and (max-width: 503px) {
+@media (min-width: 381px) and (max-width: 450px) {
   #tyre{
-    top: 258px !important;
-    width: 370px !important;
-  }
-}
-@media (min-width: 320px) and (max-width: 448px) {
-  #tyre{
-    top: 271px !important;
+    top: 351px !important;
     width: 350px !important;
   }
 }
-@media (min-width: 320px) and (max-width: 383px) {
+@media (min-width: 378px) and (max-width: 381px) {
   #tyre{
     top: 305px !important;
     width: 300px !important;
   }
 }
-@media (min-width: 320px) and (max-width: 372px) {
+@media (min-width: 364px) and (max-width: 378px) {
   #tyre{
-    top: 328px !important;
+    top: 385px !important;
     width: 300px !important;
   }
 }
 
-@media (min-width: 320px) and (max-width: 362px) {
+@media (min-width: 354px) and (max-width: 364px) {
   #tyre{
-    top: 342px !important;
+    top: 421px !important;
     width: 280px !important;
   }
 }
-@media (min-width: 320px) and (max-width: 351px) {
+@media (min-width: 349px) and (max-width: 354px) {
   #tyre{
-    top: 363px !important;
+    top: 441px !important;
     width: 280px !important;
   }
 }
-@media (min-width: 320px) and (max-width: 349px) {
+@media (min-width: 326px) and (max-width: 349px) {
   #tyre{
-    top: 402px !important;
+    top: 481px !important;
     width: 250px !important;
   }
 }
 @media (min-width: 320px) and (max-width: 326px) {
   #tyre{
-    top: 450px !important;
+    top: 530px !important;
     width: 250px !important;
   }
 }
 
-/* /////// */
-/* desktop  */
-/* @media (min-width: 1024px) and (max-width: 1342px) {
-  #tyre{
-    top: 130px !important;
-    width: 450px !important;
+/* // desktop //  */
+ @media (min-width: 502px) and (max-width: 549px) {
+  #tyre {
+    top: 325px !important;
+    width: 360px !important;
   }
-} */
-/* @media (min-width: 1025px) and (max-width: 1160px) {
-  #tyre{
-    top: -195px !important;
-    width: 350px !important;
+}
+ @media (min-width: 550px) and (max-width: 603px) {
+  #tyre {
+    top: 325px !important;
+    width: 360px !important;
   }
-} */
-@media (min-width: 1024px) and (max-width: 1028px) {
+}
+ @media (min-width: 603px) and (max-width: 688px) {
+  #tyre {
+    top: 325px !important;
+    width: 360px !important;
+  }
+}
+ @media (min-width: 668px) and (max-width: 759px) {
+  #tyre {
+    top: 300px !important;
+    width: 360px !important;
+  }
+}
+@media (min-width: 759px) and (max-width: 1024px) {
   #tyre{
-    top: 136px !important;
+    top: 235px !important;
     width: 350px !important;
   }
 }
-@media (min-width: 1029px) and (max-width: 1149px) {
+@media (min-width: 1024px) and (max-width: 1028px) {
   #tyre{
-    top: 115px !important;
+    top: 235px !important;
+    width: 350px !important;
+  }
+}
+@media (min-width: 1029px) and (max-width: 1150px) {
+  #tyre{
+    top: 235px !important;
     width: 350px !important;
   }
 }
 @media (min-width: 1150px) and (max-width: 1250px) {
   #tyre{
-    top: 125px !important;
+    top: 235px !important;
     width: 350px !important;
   }
 }
