@@ -15,6 +15,12 @@ import { Pagination, Navigation } from 'swiper/modules'; // 👈 Add Navigation 
 import "swiper/css";
 import "swiper/css/pagination";
 
+// tesinomial 
+
+import googlee from "../assets/googl.png";
+//
+
+
 // hero 
 import bghero from "../assets/Home/bghero.png";
 import redBox from "../assets/Home/redBox.png"
@@ -1073,15 +1079,26 @@ const Home = () => {
                 {testimonials.map((testimonial, index) => (
                   <SwiperSlide key={index}>
                     <div className="bg-white max-w-[320px] sm:max-w-none h-auto min-h-[270px] shadow-xl overflow-hidden p-6 text-start flex flex-col justify-between mx-auto w-full ">
-                      <div className="mt-2 text-yellow-500 text-lg">
-                        {"★".repeat(testimonial.rating)}
-                        {"☆".repeat(5 - testimonial.rating)}
-                      </div>
-                      <p className="text-[#010101] font-medium mt-4">
+<div className="flex justify-between items-center">
+  {/* Image + Text side by side */}
+  <div className="flex items-center space-x-2">
+    <img src={googlee} alt="Google Logo" className="w-6 h-auto" />
+    <h1 className="text-sm font-semibold">Reviews From Google</h1>
+  </div>
+
+  {/* Star Ratings */}
+  <div className="flex items-center text-yellow-500 text-lg">
+    {"★".repeat(testimonial.rating)}
+    {"☆".repeat(5 - testimonial.rating)}
+  </div>
+</div>
+
+
+                      <p className="text-[#425466] font-medium mt-4">
                         "{testimonial.review}"
                       </p>
                       <div>
-                        <h3 className="text-xl font-semibold text-black">
+                        <h3 className="text-base font-semibold text-black">
                           {testimonial.name}
                         </h3>
                         <p className="text-sm text-gray-500">{testimonial.role}</p>
