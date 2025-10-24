@@ -15,6 +15,8 @@ import Service6 from './Components/insideService/Service6';
 import Sample from './Components/HeroSection';
 import ScrollToHashElement from './ScrollToHash';
 import Terms from './Components/Terms';
+import ScrollToTop from './Components/ScrollToTop';
+import { Scroll } from 'lucide-react';
 
 // Wrapper to access hooks like useLocation inside BrowserRouter
 const AppWrapper = () => {
@@ -50,6 +52,7 @@ const AppWrapper = () => {
     <>
       {!hideNavbar && <Navbar />}
       <ScrollToHashElement />
+      <ScrollToTop/>
 
       <Routes>
         <Route path="/" element={<Home />} />
