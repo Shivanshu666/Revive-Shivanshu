@@ -13,10 +13,10 @@ import Service5 from './Components/insideService/Service5';
 import Service6 from './Components/insideService/Service6';
 
 import Sample from './Components/HeroSection';
-import ScrollToHashElement from './ScrollToHash';
+import ScrollToHash from './ScrollToHash';
 import Terms from './Components/Terms';
 import ScrollToTop from './Components/ScrollToTop';
-import { Scroll } from 'lucide-react';
+
 
 // Wrapper to access hooks like useLocation inside BrowserRouter
 const AppWrapper = () => {
@@ -42,7 +42,7 @@ const AppWrapper = () => {
   // Routes where Footer should be hidden (includes Terms page)
   const hideFooterRoutes = [
     ...hideNavbarRoutes,
-    '/Terms' // ✅ Footer will be hidden on this page
+    '/terms' // ✅ Footer will be hidden on this page
   ];
 
   const hideNavbar = hideNavbarRoutes.includes(location.pathname);
@@ -51,7 +51,7 @@ const AppWrapper = () => {
   return (
     <>
       {!hideNavbar && <Navbar />}
-      <ScrollToHashElement />
+      <ScrollToHash />
       <ScrollToTop/>
 
       <Routes>
@@ -76,7 +76,7 @@ const AppWrapper = () => {
 
         {/* Other Pages */}
         <Route path="/sample" element={<Sample />} />
-        <Route path="/Terms" element={<Terms />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
 
       {!hideFooter && <Footer />}

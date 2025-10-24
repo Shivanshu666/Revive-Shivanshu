@@ -97,18 +97,28 @@ const Footer = () => {
 
 
          <div className="flex flex-col w-full space-y-4 md:w-1/3 z-44">
-  <ul className="space-y-4 text-sm font-medium">
-    <li>
-      <Link className="hover:text-red-600 cursor-pointer" to="/Terms" state={{ from: "footer" }}>
-        Terms and Conditions | Privacy Policy | Cookies
-      </Link>
-    </li>
-    <li>
-      <p className="inline-block w-full">
-        © 2025 Revive-Auto, Garage | All Rights Reserved
-      </p>
-    </li>
-  </ul>
+<ul className="space-y-4 text-sm font-medium">
+  <li className="space-x-2">
+    <Link className="hover:text-red-600 cursor-pointer" to="/terms" state={{ from: "footer" }}>
+      Terms and Conditions
+    </Link>
+    <span>|</span>
+    <Link className="hover:text-red-600 cursor-pointer" to="/terms#privacy-policy" state={{ from: "footer" }}>
+      Privacy Policy
+    </Link>
+    <span>|</span>
+    <Link className="hover:text-red-600 cursor-pointer" to="/terms#cookies" state={{ from: "footer" }}>
+      Cookies
+    </Link>
+  </li>
+
+  <li>
+    <p className="inline-block w-full">
+      © 2025 Revive-Auto, Garage | All Rights Reserved
+    </p>
+  </li>
+</ul>
+
 
   <p className="text-black font-medium text-sm">
     Build by{" "}

@@ -1,9 +1,13 @@
-import React from 'react'
+
+
+import ScrollToHash from '../ScrollToHash';
 
 const Terms = () => {
+
   return (
     <>
       <section className="py-20 w-full mx-auto px-4 md:px-12">
+        <ScrollToHash />
         <div className="space-y-12 px-4 sm:px-6 md:px-12 max-w-7xl  mx-auto">
           {/* Section 1 */}
           <div className="space-y-4">
@@ -233,7 +237,7 @@ const Terms = () => {
         </div>
 
         {/* // privacy  */}
-        <div className="space-y-12 py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto text-gray-700">
+        <div className="space-y-12 py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto text-gray-700" id="privacy-policy">
           {/* Section 1 */}
           <div className="space-y-4">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-red-600">
@@ -464,7 +468,8 @@ const Terms = () => {
         </div>
 
         {/* // cookies  */}
-        <div className="space-y-12 mb-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto text-gray-700">
+        <div className="space-y-12 mb-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto text-gray-700 scroll-mt-20" id="cookies">
+          <ScrollToHash />
           {/* Section 1 */}
           <div className="space-y-4">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-red-600">
