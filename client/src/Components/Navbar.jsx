@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import flogo from "../assets/Home/flogo.webp";
 import { HiMenu, HiX } from "react-icons/hi";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import gsap from "gsap";
 
 const Navbar = () => {
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <FaInstagram className="hover:text-red-600 transition" />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <FaTwitter className="hover:text-red-600 transition" />
+                <FaYoutube className="hover:text-red-600 transition" />
               </a>
             </div>
           </div>

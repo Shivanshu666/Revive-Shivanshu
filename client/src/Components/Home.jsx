@@ -610,6 +610,24 @@ const Home = () => {
     }
   };
 
+  // gallery
+  const projects = [
+    { img: project1, link: "https://www.instagram.com/reel/DPMANEmCSNh/" },
+    { img: project2, link: "https://www.instagram.com/p/POST2_LINK" },
+    { img: project3, link: "https://www.instagram.com/reel/DPMANEmCSNh/" },
+    { img: project4, link: "https://www.instagram.com/reel/DPGMLTaCej_/" },
+    { img: project5, link: "https://www.instagram.com/reel/DPgSTNGiRI4/" },
+    { img: project6, link: "https://www.instagram.com/reel/DPQ7eXhCWZ1/" },
+    { img: project7, link: "https://www.instagram.com/reel/DOkdpbmiRtt/" },
+    // { img: project8, link: "https://www.instagram.com/p/POST8_LINK" },
+    // { img: project9, link: "https://www.instagram.com/p/POST9_LINK" },
+    { img: project10, link: "https://www.instagram.com/reel/DOsgL2lCacR/" },
+    { img: project11, link: "https://www.instagram.com/reel/DOsgL2lCacR/" },
+    { img: project12, link: "https://www.instagram.com/p/POST12_LINK" },
+    { img: project13, link: "https://www.instagram.com/reel/DOsgL2lCacR/" },
+  ];
+  //
+
   // ROad ANimation 
 
   useEffect(() => {
@@ -928,22 +946,51 @@ const Home = () => {
             <h1 className="text-center text-2xl md:text-5xl font-semibold leading-relaxed">
               LATEST PROJECTS
             </h1>
-            <div className="mt-10 overflow-hidden mb-6" ref={scrollRef}>
-              {/* ✅ Animated Image Row */}
-              <div className="flex gap-4 w-max" ref={imageRowRef}>
-                {[project1, project2, project3, project4, project5, project6, project7, project8, project9, project10, project11, project12, project13, project1, project2, project3, project4, project5, project6, project7, project8, project9, project10, project11, project12, project13, project1, project2, project3, project4, project5, project6, project7, project8, project9, project10, project11, project12, project13,].map((img, index) => (
-                  <img
-                    key={index}
-                    src={img}
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                    alt={`Project ${index + 1}`}
-                    className="w-[300px] h-[300px] md:w-[400px] md:h-[300px] object-cover flex-shrink-0"
-                  />
-                ))}
-              </div>
-            </div>
+<div className="mt-10 overflow-hidden mb-6" ref={scrollRef}>
+  {/* ✅ Animated Image Row */}
+<div className="flex gap-4 w-max" ref={imageRowRef}>
+  {projects.map((project, index) => (
+    <div
+      key={index}
+      className="relative w-[300px] h-[300px] md:w-[400px] md:h-[300px] flex-shrink-0"
+    >
+      {/* 🖼️ Image */}
+      <img
+        src={project.img}
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+        alt={`Project ${index + 1}`}
+        className="w-full h-full object-cover rounded-md"
+      />
+
+      {/* 📷 Clickable “View Post” + Icon */}
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-3 right-3 flex items-center gap-2 bg-black/60 px-3 py-2 rounded-full text-white hover:bg-black/80 transition"
+      >
+        {/* 📝 Text */}
+        <span className="text-sm font-medium">View Post</span>
+
+        {/* 🔗 Instagram Icon */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          className="w-5 h-5"
+        >
+          <path d="M7.5 2C4.462 2 2 4.462 2 7.5v9C2 19.538 4.462 22 7.5 22h9c3.038 0 5.5-2.462 5.5-5.5v-9C22 4.462 19.538 2 16.5 2h-9zM7.5 4h9A3.5 3.5 0 0 1 20 7.5v9A3.5 3.5 0 0 1 16.5 20h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4zm9.75 1.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
+        </svg>
+      </a>
+    </div>
+  ))}
+</div>
+
+</div>
+
+
           </div>
         </section>
 
@@ -954,8 +1001,7 @@ const Home = () => {
             <div className="order-1 md:order-2 flex flex-col justify-start space-y-6" ref={textRef1}>
               <div>
                 <h1 className="text-4xl text-center md:text-start font-medium">
-                  Why Choose <span className="text-[#E62425]">Revive</span> Car
-                  Garage?
+                  Why Choose <span className="text-[#E62425]">Revive</span> Auto Studio ?
                 </h1>
                 <p className="text-sm font-bold text-[#454545] text-center md:text-start leading-snug mt-6">
                   Discover the Benefits That Set Us Apart and Propel Your
