@@ -31,7 +31,7 @@ const Navbar = () => {
     { label: "ABOUT", id: "about" },
     { label: "BOOKING", id: "booking" },
     { label: "SERVICES", id: "services" },
-    { label: "TESTIMONIAL", id: "testimonial" },
+    { label: "TESTIMONIALS", id: "testimonial" },
     { label: "GALLERY", id: "gallery" },
   ];
 

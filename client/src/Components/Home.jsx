@@ -1193,7 +1193,7 @@ const Home = () => {
                 Quick and Convenient
               </h3>
               <p className="text-gray-600 md:text-start text-center mb-1 md:mb-9">
-                Scheduling with Tirecargories is quick and easy, ensuring your
+                Scheduling with Tire cargories is quick and easy, ensuring your
                 service is performed at a convenient time. Get top-tier service,
                 diagnostics, repairs, or maintenance today!
               </p>
