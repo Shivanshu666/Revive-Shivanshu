@@ -91,10 +91,10 @@ html {
 }
 
 /* mobile  */
-
+/* 
 @media (min-width: 450px) and (max-width: 502px) {
   #tyre{
-    top: 358px !important;
+    top: 398px !important;
     width: 340px !important;
   }
 }
@@ -143,7 +143,7 @@ html {
 }
 
 /* // desktop //  */
- @media (min-width: 502px) and (max-width: 549px) {
+ /* @media (min-width: 502px) and (max-width: 549px) {
   #tyre {
     top: 325px !important;
     width: 360px !important;
@@ -190,6 +190,55 @@ html {
     top: 235px !important;
     width: 350px !important;
   }
+}  */
+/* 🔹 Default styling (for smallest screens or fallback) */
+#tyre {
+  position: absolute;
+  top: 530px;
+  width: 250px;
+}
+
+/* 🔹 Mobile (320px – 502px) */
+@media (min-width: 320px) and (max-width: 326px) {
+  #tyre { top: 530px !important; width: 250px !important; }
+}
+@media (min-width: 327px) and (max-width: 349px) {
+  #tyre { top: 481px !important; width: 250px !important; }
+}
+@media (min-width: 350px) and (max-width: 364px) {
+  #tyre { top: 442px !important; width: 280px !important; }
+}
+@media (min-width: 365px) and (max-width: 378px) {
+  #tyre { top: 385px !important; width: 300px !important; }
+}
+@media (min-width: 379px) and (max-width: 381px) {
+  #tyre { top: 405px !important; width: 300px !important; }
+}
+@media (min-width: 382px) and (max-width: 450px) {
+  #tyre { top: 352px !important; width: 350px !important; }
+}
+@media (min-width: 451px) and (max-width: 502px) {
+  #tyre { top: 358px !important; width: 340px !important; }
+}
+
+/* 🔹 Tablets and Small Desktops (503px – 759px) */
+@media (min-width: 503px) and (max-width: 759px) {
+  #tyre { top: 325px !important; width: 360px !important; }
+}
+
+/* 🔹 Medium to Large Desktops (760px – 1250px) */
+@media (min-width: 760px) and (max-width: 1250px) {
+  #tyre { top: 255px !important; width: 350px !important; }
+}
+
+/* 🔹 Optional: Very large screens (1251px+) */
+@media (min-width: 1251px) {
+  #tyre { top: 230px !important; width: 370px !important; }
+}
+
+/* 🔹 Other elements */
+#road-animation {
+  line-height: 0;
 }
 
 #road-animation {

@@ -204,12 +204,6 @@ const Footer = () => {
       Cookies
     </Link>
   </li>
-
-  <li>
-    <p className="inline-block w-full">
-      © 2025 Revive-Auto, Garage | All Rights Reserved
-    </p>
-  </li>
 </ul>
 
 </div>
