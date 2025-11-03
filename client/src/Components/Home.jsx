@@ -377,36 +377,36 @@ const Home = () => {
     { src: bmw, name: "BMW" },
     { src: lambo, name: "Lamborghini" },
     { src: renault, name: "Renault" }, // 10
-    {src: jeep, name: "Jeep"},
-    {src: tata, name: "Tata"},
-    {src: rolls, name: "Rolls Royce"},
-    {src: nisan, name: "Nissan"},
-    {src: sujuki, name: "Suzuki"},
-    {src: tesla, name: "Tesla"},
-    {src: chev, name: "Chevrolet"},
-    {src: eichern, name: "Eicher"},
-    {src: ferrari, name: "Ferrari"},
-    {src: kia, name: "Kia"},
+    { src: jeep, name: "Jeep" },
+    { src: tata, name: "Tata" },
+    { src: rolls, name: "Rolls Royce" },
+    { src: nisan, name: "Nissan" },
+    { src: sujuki, name: "Suzuki" },
+    { src: tesla, name: "Tesla" },
+    { src: chev, name: "Chevrolet" },
+    { src: eichern, name: "Eicher" },
+    { src: ferrari, name: "Ferrari" },
+    { src: kia, name: "Kia" },
 
   ];
 
   const [visibleBrands, setVisibleBrands] = useState([]); // all brands
-const [topBrands, setTopBrands] = useState([]); // top row
+  const [topBrands, setTopBrands] = useState([]); // top row
 
-const updateVisibleItems = () => {
-  const width = window.innerWidth;
-  setVisibleBrands(brand); // keep all brands for bottom row
+  const updateVisibleItems = () => {
+    const width = window.innerWidth;
+    setVisibleBrands(brand); // keep all brands for bottom row
 
-  const topCount = width < 1024 ? 8 : 10;
-  setTopBrands(brand.slice(0, topCount)); // only top row limited
-};
+    const topCount = width < 1024 ? 8 : 10;
+    setTopBrands(brand.slice(0, topCount)); // only top row limited
+  };
 
-useEffect(() => {
-  updateVisibleItems(); // run immediately
-  window.addEventListener("resize", updateVisibleItems);
+  useEffect(() => {
+    updateVisibleItems(); // run immediately
+    window.addEventListener("resize", updateVisibleItems);
 
-  return () => window.removeEventListener("resize", updateVisibleItems);
-}, []);
+    return () => window.removeEventListener("resize", updateVisibleItems);
+  }, []);
 
 
   //
@@ -662,42 +662,42 @@ useEffect(() => {
   // brand we serve 
 
   useEffect(() => {
-  if (scrollRefBottom.current) {
-    const slider = scrollRefBottom.current;
-    slider.scrollLeft = slider.scrollWidth; // scroll all the way to the right
-  }
-}, [visibleBrands]); // run whenever brands change
+    if (scrollRefBottom.current) {
+      const slider = scrollRefBottom.current;
+      slider.scrollLeft = slider.scrollWidth; // scroll all the way to the right
+    }
+  }, [visibleBrands]); // run whenever brands change
 
 
- const scrollRefTop = useRef(null);
-const scrollRefBottom = useRef(null);
+  const scrollRefTop = useRef(null);
+  const scrollRefBottom = useRef(null);
 
-// Generic handler for any scrollable row
-const handleMouseDown = (sliderRef) => (e) => {
-  const slider = sliderRef.current;
-  slider.isDown = true;
-  slider.startX = e.pageX - slider.offsetLeft;
-  slider.scrollLeftStart = slider.scrollLeft;
-};
+  // Generic handler for any scrollable row
+  const handleMouseDown = (sliderRef) => (e) => {
+    const slider = sliderRef.current;
+    slider.isDown = true;
+    slider.startX = e.pageX - slider.offsetLeft;
+    slider.scrollLeftStart = slider.scrollLeft;
+  };
 
-const handleMouseLeave = (sliderRef) => () => {
-  const slider = sliderRef.current;
-  if (slider) slider.isDown = false;
-};
+  const handleMouseLeave = (sliderRef) => () => {
+    const slider = sliderRef.current;
+    if (slider) slider.isDown = false;
+  };
 
-const handleMouseUp = (sliderRef) => () => {
-  const slider = sliderRef.current;
-  if (slider) slider.isDown = false;
-};
+  const handleMouseUp = (sliderRef) => () => {
+    const slider = sliderRef.current;
+    if (slider) slider.isDown = false;
+  };
 
-const handleMouseMove = (sliderRef) => (e) => {
-  const slider = sliderRef.current;
-  if (!slider || !slider.isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.startX;
-  const walk = (e.pageX - slider.startX) * 1.5;
-  slider.scrollLeft = slider.scrollLeftStart - walk; // drag right → scroll right
-};
+  const handleMouseMove = (sliderRef) => (e) => {
+    const slider = sliderRef.current;
+    if (!slider || !slider.isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.startX;
+    const walk = (e.pageX - slider.startX) * 1.5;
+    slider.scrollLeft = slider.scrollLeftStart - walk; // drag right → scroll right
+  };
 
 
   return (
@@ -971,54 +971,54 @@ const handleMouseMove = (sliderRef) => (e) => {
 
         {/* Brand We Serve  */}
 
-     <section
-  className="w-[90%] mx-auto md:mt-[80px] py-6"
-  id="brand-item"
-  ref={brandWeServeRef}
->
-  <h1 className="text-center text-xl md:text-2xl font-medium mb-6 md:mb-12">
-    Brands We Serve
-  </h1>
+        <section
+          className="w-[90%] mx-auto md:mt-[80px] py-6"
+          id="brand-item"
+          ref={brandWeServeRef}
+        >
+          <h1 className="text-center text-xl md:text-2xl font-medium mb-6 md:mb-12">
+            Brands We Serve
+          </h1>
 
-<div
-  ref={scrollRefTop}
-  onMouseDown={handleMouseDown(scrollRefTop)}
-  onMouseLeave={handleMouseLeave(scrollRefTop)}
-  onMouseUp={handleMouseUp(scrollRefTop)}
-  onMouseMove={handleMouseMove(scrollRefTop)}
-  className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none"
->
-  <div className="flex gap-8 w-max px-4">
-    {visibleBrands.slice(0, 10).map((brand, index) => (
-      <div key={index} className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center">
-        <img src={brand.src} alt={brand.name} className="w-16 md:w-24 h-auto hover:scale-110 transition-transform duration-300" />
-        <p className="mt-2 text-sm md:text-base">{brand.name}</p>
-      </div>
-    ))}
-  </div>
-</div>
+          <div
+            ref={scrollRefTop}
+            onMouseDown={handleMouseDown(scrollRefTop)}
+            onMouseLeave={handleMouseLeave(scrollRefTop)}
+            onMouseUp={handleMouseUp(scrollRefTop)}
+            onMouseMove={handleMouseMove(scrollRefTop)}
+            className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none"
+          >
+            <div className="flex gap-8 w-max px-4">
+              {visibleBrands.slice(0, 10).map((brand, index) => (
+                <div key={index} className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center">
+                  <img src={brand.src} alt={brand.name} className="w-16 md:w-24 h-auto hover:scale-110 transition-transform duration-300" />
+                  <p className="mt-2 text-sm md:text-base">{brand.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-{/* Bottom Row */}
-<div
-  ref={scrollRefBottom}
-  onMouseDown={handleMouseDown(scrollRefBottom)}
-  onMouseLeave={handleMouseLeave(scrollRefBottom)}
-  onMouseUp={handleMouseUp(scrollRefBottom)}
-  onMouseMove={handleMouseMove(scrollRefBottom)}
-  className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none mt-10"
->
-  <div className="flex gap-8 w-max px-4">
-    {visibleBrands.slice(10).map((brand, index) => (
-      <div key={index + 10} className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center">
-        <img src={brand.src} alt={brand.name} className="w-16 md:w-24 h-auto hover:scale-110 transition-transform duration-300" />
-        <p className="mt-2 text-sm md:text-base">{brand.name}</p>
-      </div>
-    ))}
-  </div>
-</div>
+          {/* Bottom Row */}
+          <div
+            ref={scrollRefBottom}
+            onMouseDown={handleMouseDown(scrollRefBottom)}
+            onMouseLeave={handleMouseLeave(scrollRefBottom)}
+            onMouseUp={handleMouseUp(scrollRefBottom)}
+            onMouseMove={handleMouseMove(scrollRefBottom)}
+            className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none mt-10"
+          >
+            <div className="flex gap-8 w-max px-4">
+              {visibleBrands.slice(10).map((brand, index) => (
+                <div key={index + 10} className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center">
+                  <img src={brand.src} alt={brand.name} className="w-16 md:w-24 h-auto hover:scale-110 transition-transform duration-300" />
+                  <p className="mt-2 text-sm md:text-base">{brand.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
 
-</section>
+        </section>
 
         {/* // Latest Project  */}
         <section className="w-[100%] md:mt-[150px] py-12 bg-gray-400 scroll-mt-18" ref={galleryRef} id='gallery'>
@@ -1029,49 +1029,49 @@ const handleMouseMove = (sliderRef) => (e) => {
             <h1 className="text-center text-2xl md:text-5xl font-semibold leading-relaxed">
               LATEST PROJECTS
             </h1>
-<div className="mt-10 overflow-hidden mb-6" ref={scrollRef}>
-  {/* ✅ Animated Image Row */}
-<div className="flex gap-4 w-max" ref={imageRowRef}>
-  {projects.map((project, index) => (
-    <div
-      key={index}
-      className="relative w-[300px] h-[300px] md:w-[400px] md:h-[300px] flex-shrink-0"
-    >
-      {/* 🖼️ Image */}
-      <img
-        src={project.img}
-        loading="lazy"
-        decoding="async"
-        fetchpriority="low"
-        alt={`Project ${index + 1}`}
-        className="w-full h-full object-cover rounded-md"
-      />
+            <div className="mt-10 overflow-hidden mb-6" ref={scrollRef}>
+              {/* ✅ Animated Image Row */}
+              <div className="flex gap-4 w-max" ref={imageRowRef}>
+                {projects.map((project, index) => (
+                  <div
+                    key={index}
+                    className="relative w-[300px] h-[300px] md:w-[400px] md:h-[300px] flex-shrink-0"
+                  >
+                    {/* 🖼️ Image */}
+                    <img
+                      src={project.img}
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                      alt={`Project ${index + 1}`}
+                      className="w-full h-full object-cover rounded-md"
+                    />
 
-      {/* 📷 Clickable “View Post” + Icon */}
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute bottom-3 right-3 flex items-center gap-2 bg-black/60 px-3 py-2 rounded-full text-white hover:bg-black/80 transition"
-      >
-        {/* 📝 Text */}
-        <span className="text-sm font-medium">View Post</span>
+                    {/* 📷 Clickable “View Post” + Icon */}
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute bottom-3 right-3 flex items-center gap-2 bg-black/60 px-3 py-2 rounded-full text-white hover:bg-black/80 transition"
+                    >
+                      {/* 📝 Text */}
+                      <span className="text-sm font-medium">View Post</span>
 
-        {/* 🔗 Instagram Icon */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          className="w-5 h-5"
-        >
-          <path d="M7.5 2C4.462 2 2 4.462 2 7.5v9C2 19.538 4.462 22 7.5 22h9c3.038 0 5.5-2.462 5.5-5.5v-9C22 4.462 19.538 2 16.5 2h-9zM7.5 4h9A3.5 3.5 0 0 1 20 7.5v9A3.5 3.5 0 0 1 16.5 20h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4zm9.75 1.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
-        </svg>
-      </a>
-    </div>
-  ))}
-</div>
+                      {/* 🔗 Instagram Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        className="w-5 h-5"
+                      >
+                        <path d="M7.5 2C4.462 2 2 4.462 2 7.5v9C2 19.538 4.462 22 7.5 22h9c3.038 0 5.5-2.462 5.5-5.5v-9C22 4.462 19.538 2 16.5 2h-9zM7.5 4h9A3.5 3.5 0 0 1 20 7.5v9A3.5 3.5 0 0 1 16.5 20h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4zm9.75 1.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
+                      </svg>
+                    </a>
+                  </div>
+                ))}
+              </div>
 
-</div>
+            </div>
 
 
           </div>
@@ -1185,9 +1185,9 @@ const handleMouseMove = (sliderRef) => (e) => {
             {/* Horizontal Layout */}
             <div className="py-6 px-4 md:px-12 mt-4 md:bottom-[-80px] relative">
               {/* Background Layer */}
-            <div className="absolute inset-0 flex justify-center items-center z-0">
-    <div className="w-full max-w-[700px] h-[390px] sm:h-[400px] md:h-[500px] bg-[#FFEEEE] rounded-lg mx-auto"></div>
-  </div>
+              <div className="absolute inset-0 flex justify-center items-center z-0">
+                <div className="w-full max-w-[700px] h-[390px] sm:h-[400px] md:h-[500px] bg-[#FFEEEE] rounded-lg mx-auto"></div>
+              </div>
 
               {/* Swiper Carousel */}
               <Swiper
@@ -1208,19 +1208,19 @@ const handleMouseMove = (sliderRef) => (e) => {
                 {testimonials.map((testimonial, index) => (
                   <SwiperSlide key={index}>
                     <div className="bg-white max-w-[320px] sm:max-w-none h-auto min-h-[270px] shadow-xl overflow-hidden p-6 text-start flex flex-col justify-between mx-auto w-full ">
-<div className="flex justify-between items-center">
-  {/* Image + Text side by side */}
-  <div className="flex items-center space-x-2">
-    <img src={googlee} alt="Google Logo" className="w-6 h-auto" />
-    <h1 className="text-sm font-semibold">Reviews From Google</h1>
-  </div>
+                      <div className="flex justify-between items-center">
+                        {/* Image + Text side by side */}
+                        <div className="flex items-center space-x-2">
+                          <img src={googlee} alt="Google Logo" className="w-6 h-auto" />
+                          <h1 className="text-sm font-semibold">Reviews From Google</h1>
+                        </div>
 
-  {/* Star Ratings */}
-  <div className="flex items-center text-yellow-500 text-lg">
-    {"★".repeat(testimonial.rating)}
-    {"☆".repeat(5 - testimonial.rating)}
-  </div>
-</div>
+                        {/* Star Ratings */}
+                        <div className="flex items-center text-yellow-500 text-lg">
+                          {"★".repeat(testimonial.rating)}
+                          {"☆".repeat(5 - testimonial.rating)}
+                        </div>
+                      </div>
 
 
                       <p className="text-[#425466] font-medium mt-4">
@@ -1239,23 +1239,23 @@ const handleMouseMove = (sliderRef) => (e) => {
 
               {/* Navigation Buttons */}
               <div className="absolute bottom-[42px] md:bottom-0 left-0 right-0 flex justify-center transform translate-y-1/2 z-20 space-x-4">
-              <div className="px-3 py-2 bg-white">
+                <div className="px-3 py-2 bg-white">
 
-              
-                <button
-                  onClick={handlePrev}
-                  className="text-black px-4 md:py-2 hover:cursor-pointer   transition"
-                  aria-label="Previous testimonial"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="text-white bg-red-600 px-4 py-2 hover:bg-red-700 hover:cursor-pointer transition"
-                  aria-label="Next testimonial"
-                >
-                  →
-                </button>
+
+                  <button
+                    onClick={handlePrev}
+                    className="text-black px-4 md:py-2 hover:cursor-pointer   transition"
+                    aria-label="Previous testimonial"
+                  >
+                    ←
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="text-white bg-red-600 px-4 py-2 hover:bg-red-700 hover:cursor-pointer transition"
+                    aria-label="Next testimonial"
+                  >
+                    →
+                  </button>
                 </div>
               </div>
             </div>
@@ -1294,7 +1294,16 @@ const handleMouseMove = (sliderRef) => (e) => {
               <h3 className="text-2xl font-semibold mb-2 md:block hidden">
                 Contact
               </h3>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Plot+no+11+12,+Suffah+Colony+Rd,+opp.+Wipro+Campus+Road,+Journalists+Colony+Phase+3,+Phase+3,+Gachibowli,+Gopanpalle,+Hyderabad,+Telangana+500075"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-800 md:block hidden"
+              >
+                Plot no 11 12, Suffah Colony Rd, opp. Wipro Campus Road, Journalists Colony Phase 3, Phase 3, Gachibowli, Gopanpalle, Hyderabad, Telangana 500075
+              </a>
 
+              <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a>
               <a href="mailto:info@revive-auto.in" className="text-gray-600 md:block hidden ">
                 info@revive-auto.in
               </a>
