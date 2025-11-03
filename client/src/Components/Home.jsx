@@ -47,7 +47,18 @@ import jaguar from "../assets/BrandWeServe/jaguar.webp";
 import lambo from "../assets/BrandWeServe/lambo.png";
 import mahindra from "../assets/BrandWeServe/mahindra.png";
 import mercedes from "../assets/BrandWeServe/mercedes.webp";
-import renault from "../assets/BrandWeServe/Renault.png";
+import renault from "../assets/BrandWeServe/Renault.png"; // 
+
+import jeep from '../assets/BrandWeServe/jeep.png';
+import tata from '../assets/BrandWeServe/tata.png';
+import rolls from '../assets/BrandWeServe/rolls.png';
+import nisan from '../assets/BrandWeServe/nisan.png';
+import sujuki from '../assets/BrandWeServe/sujuki.png';
+import tesla from '../assets/BrandWeServe/tesla.png';
+import chev from '../assets/BrandWeServe/chev.png';
+import eichern from '../assets/BrandWeServe/eicher.png';
+import ferrari from '../assets/BrandWeServe/ferrari.png';
+import kia from '../assets/BrandWeServe/kia.png';
 
 // why choose us
 import why1 from "../assets/whyChoose/why1.webp";
@@ -365,34 +376,38 @@ const Home = () => {
     { src: ford, name: "Ford" },
     { src: bmw, name: "BMW" },
     { src: lambo, name: "Lamborghini" },
-    { src: renault, name: "Renault" },
+    { src: renault, name: "Renault" }, // 10
+    {src: jeep, name: "Jeep"},
+    {src: tata, name: "Tata"},
+    {src: rolls, name: "Rolls Royce"},
+    {src: nisan, name: "Nissan"},
+    {src: sujuki, name: "Suzuki"},
+    {src: tesla, name: "Tesla"},
+    {src: chev, name: "Chevrolet"},
+    {src: eichern, name: "Eicher"},
+    {src: ferrari, name: "Ferrari"},
+    {src: kia, name: "Kia"},
+
   ];
 
-  const [visibleServices, setVisibleServices] = useState([]);
-  const [visibleBrands, setVisibleBrands] = useState([]);
+  const [visibleBrands, setVisibleBrands] = useState([]); // all brands
+const [topBrands, setTopBrands] = useState([]); // top row
 
-  const updateVisibleItems = () => {
-    const width = window.innerWidth;
-    if (width < 1024) {
-      // Show 8 items for small and medium devices (< 1024px)
-      setVisibleServices(services.slice(0, 8));
-      setVisibleBrands(brand.slice(0, 8));
-    } else {
-      // Show 10 items for large devices (≥ 1024px)
-      setVisibleServices(services.slice(0, 10));
-      setVisibleBrands(brand.slice(0, 10));
-    }
+const updateVisibleItems = () => {
+  const width = window.innerWidth;
+  setVisibleBrands(brand); // keep all brands for bottom row
 
-  };
+  const topCount = width < 1024 ? 8 : 10;
+  setTopBrands(brand.slice(0, topCount)); // only top row limited
+};
 
-  useEffect(() => {
-    updateVisibleItems();
-    window.addEventListener("resize", updateVisibleItems);
+useEffect(() => {
+  updateVisibleItems(); // run immediately
+  window.addEventListener("resize", updateVisibleItems);
 
-    return () => {
-      window.removeEventListener("resize", updateVisibleItems);
-    };
-  }, []);
+  return () => window.removeEventListener("resize", updateVisibleItems);
+}, []);
+
 
   //
 
@@ -643,6 +658,48 @@ const Home = () => {
   }, []);
 
   /////
+
+  // brand we serve 
+
+  useEffect(() => {
+  if (scrollRefBottom.current) {
+    const slider = scrollRefBottom.current;
+    slider.scrollLeft = slider.scrollWidth; // scroll all the way to the right
+  }
+}, [visibleBrands]); // run whenever brands change
+
+
+ const scrollRefTop = useRef(null);
+const scrollRefBottom = useRef(null);
+
+// Generic handler for any scrollable row
+const handleMouseDown = (sliderRef) => (e) => {
+  const slider = sliderRef.current;
+  slider.isDown = true;
+  slider.startX = e.pageX - slider.offsetLeft;
+  slider.scrollLeftStart = slider.scrollLeft;
+};
+
+const handleMouseLeave = (sliderRef) => () => {
+  const slider = sliderRef.current;
+  if (slider) slider.isDown = false;
+};
+
+const handleMouseUp = (sliderRef) => () => {
+  const slider = sliderRef.current;
+  if (slider) slider.isDown = false;
+};
+
+const handleMouseMove = (sliderRef) => (e) => {
+  const slider = sliderRef.current;
+  if (!slider || !slider.isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.startX;
+  const walk = (e.pageX - slider.startX) * 1.5;
+  slider.scrollLeft = slider.scrollLeftStart - walk; // drag right → scroll right
+};
+
+
   return (
     <>
       <main className="overflow-hidden" >
@@ -914,28 +971,54 @@ const Home = () => {
 
         {/* Brand We Serve  */}
 
-        <section className="w-[90%] mx-auto md:mt-[80px] py-6" id="brand-item" ref={brandWeServeRef}>
-          <h1 className="text-center text-xl md:text-2xl font-medium mb-6 md:mb-12">
-            Brands We Serve
-          </h1>
+     <section
+  className="w-[90%] mx-auto md:mt-[80px] py-6"
+  id="brand-item"
+  ref={brandWeServeRef}
+>
+  <h1 className="text-center text-xl md:text-2xl font-medium mb-6 md:mb-12">
+    Brands We Serve
+  </h1>
 
-          <div className="max-w-6xl mx-auto grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12">
-            {visibleBrands.map((brand, index) => (
-              <div
-                key={index}
-                className="brand-item flex justify-center items-center flex-col text-center"
-              >
-                <img
-                  src={brand.src}
-                  loading="lazy"
-                  alt={brand.name}
-                  className="w-9 md:w-20 h-auto hover:scale-110 transition-transform duration-300"
-                />
-                <p className="mt-2">{brand.name}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+<div
+  ref={scrollRefTop}
+  onMouseDown={handleMouseDown(scrollRefTop)}
+  onMouseLeave={handleMouseLeave(scrollRefTop)}
+  onMouseUp={handleMouseUp(scrollRefTop)}
+  onMouseMove={handleMouseMove(scrollRefTop)}
+  className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none"
+>
+  <div className="flex gap-8 w-max px-4">
+    {visibleBrands.slice(0, 10).map((brand, index) => (
+      <div key={index} className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center">
+        <img src={brand.src} alt={brand.name} className="w-16 md:w-24 h-auto hover:scale-110 transition-transform duration-300" />
+        <p className="mt-2 text-sm md:text-base">{brand.name}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+{/* Bottom Row */}
+<div
+  ref={scrollRefBottom}
+  onMouseDown={handleMouseDown(scrollRefBottom)}
+  onMouseLeave={handleMouseLeave(scrollRefBottom)}
+  onMouseUp={handleMouseUp(scrollRefBottom)}
+  onMouseMove={handleMouseMove(scrollRefBottom)}
+  className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none mt-10"
+>
+  <div className="flex gap-8 w-max px-4">
+    {visibleBrands.slice(10).map((brand, index) => (
+      <div key={index + 10} className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center">
+        <img src={brand.src} alt={brand.name} className="w-16 md:w-24 h-auto hover:scale-110 transition-transform duration-300" />
+        <p className="mt-2 text-sm md:text-base">{brand.name}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+</section>
 
         {/* // Latest Project  */}
         <section className="w-[100%] md:mt-[150px] py-12 bg-gray-400 scroll-mt-18" ref={galleryRef} id='gallery'>
