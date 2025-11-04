@@ -42,24 +42,32 @@ import audi from "../assets/BrandWeServe/audi.webp";
 import bmw from "../assets/BrandWeServe/bmw.png";
 import ford from "../assets/BrandWeServe/ford.png";
 import honda from "../assets/BrandWeServe/honda.png";
-import hyuandai from "../assets/BrandWeServe/hyuandai.png";
+import hyundai from "../assets/BrandWeServe/hyuandai.png"; // fixed typo
 import jaguar from "../assets/BrandWeServe/jaguar.webp";
 import lambo from "../assets/BrandWeServe/lambo.png";
 import mahindra from "../assets/BrandWeServe/mahindra.png";
 import mercedes from "../assets/BrandWeServe/mercedes.webp";
-import renault from "../assets/BrandWeServe/Renault.png"; // 
+import renault from "../assets/BrandWeServe/Renault.png";
 
 import jeep from '../assets/BrandWeServe/jeep.png';
 import tata from '../assets/BrandWeServe/tata.png';
 import rolls from '../assets/BrandWeServe/rolls.png';
-import nisan from '../assets/BrandWeServe/nisan.png';
-import sujuki from '../assets/BrandWeServe/sujuki.png';
+import nissan from '../assets/BrandWeServe/nisan.png'; // fixed typo
+import suzuki from '../assets/BrandWeServe/sujuki.png';
 import tesla from '../assets/BrandWeServe/tesla.png';
 import chev from '../assets/BrandWeServe/chev.png';
-import eichern from '../assets/BrandWeServe/eicher.png';
+import eicher from '../assets/BrandWeServe/eicher.png';
 import ferrari from '../assets/BrandWeServe/ferrari.png';
 import kia from '../assets/BrandWeServe/kia.png';
 
+import isuzu from '../assets/BrandWeServe/isuzu.png';
+import landRover from '../assets/BrandWeServe/landRover.png';
+import mg from '../assets/BrandWeServe/mg.png';
+import mitsubishi from '../assets/BrandWeServe/mituski.png'; // fixed typo
+import porsche from '../assets/BrandWeServe/porsche.png';
+import skoda from '../assets/BrandWeServe/skoda.png';
+import toyota from '../assets/BrandWeServe/tyota.png'; // fixed typo
+import volkswagen from '../assets/BrandWeServe/volkswagon.png'; // fixed typo
 // why choose us
 import why1 from "../assets/whyChoose/why1.webp";
 import why2 from "../assets/whyChoose/why2.webp";
@@ -73,8 +81,6 @@ import project4 from "../assets/Project/p4.JPG";
 import project5 from "../assets/Project/p5.JPG";
 import project6 from "../assets/Project/p6.JPG";
 import project7 from "../assets/Project/p7.JPG";
-import project8 from "../assets/Project/p8.JPG";
-import project9 from "../assets/Project/p9.JPG";
 import project10 from "../assets/Project/p10.JPG";
 import project11 from "../assets/Project/p11.JPG";
 import project12 from "../assets/Project/p12.JPG";
@@ -214,25 +220,25 @@ const Home = () => {
 
       // // Brand Section
 
-      const brandItems = brandWeServeRef.current.querySelectorAll(".brand-item");
+      // const brandItems = brandWeServeRef.current.querySelectorAll(".brand-item");
 
-      gsap.fromTo(
-        brandItems,
-        { x: 100, opacity: 0, filter: "blur(10px)" }, // right se aayenge
-        {
-          x: 0,
-          opacity: 1,
-          filter: "blur(0px)",
-          duration: 0.5,
-          ease: "power2.out",
-          stagger: 0.2, // ek ek karke aayenge
-          scrollTrigger: {
-            trigger: brandWeServeRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+      // gsap.fromTo(
+      //   brandItems,
+      //   { x: 100, opacity: 0, filter: "blur(10px)" }, // right se aayenge
+      //   {
+      //     x: 0,
+      //     opacity: 1,
+      //     filter: "blur(0px)",
+      //     duration: 0.5,
+      //     ease: "power2.out",
+      //     stagger: 0.2, // ek ek karke aayenge
+      //     scrollTrigger: {
+      //       trigger: brandWeServeRef.current,
+      //       start: "top 80%",
+      //       toggleActions: "play none none none",
+      //     },
+      //   }
+      // );
 
 
 
@@ -323,8 +329,12 @@ const Home = () => {
   const services = [
     {
       title: "VAG CODING VIA VCDS",
-      description:
-        "Unlock hidden features and optimize performance with our expert VAG Coding via VCDS service.",
+     
+        // "Unlock hidden features and optimize performance with our expert VAG Coding via VCDS service.",
+            shortDescription: "Unlock hidden features and optimize performance with our expert VAG Coding via VCDS service.",
+    longDescription: "Unlock hidden features and optimize performance with our expert VAG Coding via VCDS service, quickly, safely, and with complete precision every time.",
+
+        description: "Unlock hidden features and optimize performance with our expert VAG Coding via VCDS service, quickly, safely, and with complete precision every time.",
       image: service1,
       link: '/service1'
     },
@@ -366,47 +376,61 @@ const Home = () => {
   ];
 
   // brand we serve
-  let brand = [
-    { src: audi, name: "Audi" },
-    { src: jaguar, name: "Jaguar" },
-    { src: mercedes, name: "Mercedes" },
-    { src: hyuandai, name: "Hyundai" },
-    { src: mahindra, name: "Mahindra" },
-    { src: honda, name: "Honda" },
-    { src: ford, name: "Ford" },
-    { src: bmw, name: "BMW" },
-    { src: lambo, name: "Lamborghini" },
-    { src: renault, name: "Renault" }, // 10
-    { src: jeep, name: "Jeep" },
-    { src: tata, name: "Tata" },
-    { src: rolls, name: "Rolls Royce" },
-    { src: nisan, name: "Nissan" },
-    { src: sujuki, name: "Suzuki" },
-    { src: tesla, name: "Tesla" },
-    { src: chev, name: "Chevrolet" },
-    { src: eichern, name: "Eicher" },
-    { src: ferrari, name: "Ferrari" },
-    { src: kia, name: "Kia" },
+const brand = [
+  { src: audi, name: "Audi" },
+  { src: jaguar, name: "Jaguar" },
+  { src: mercedes, name: "Mercedes" },
+  { src: hyundai, name: "Hyundai" },
+  { src: mahindra, name: "Mahindra" },
+  { src: honda, name: "Honda" },
+  { src: ford, name: "Ford" },
+  { src: bmw, name: "BMW" },
+  { src: lambo, name: "Lamborghini" },
+  { src: renault, name: "Renault" },
+  { src: jeep, name: "Jeep" },
+  { src: tata, name: "Tata" },
+  { src: rolls, name: "Rolls Royce" },
+  { src: nissan, name: "Nissan" },
+  { src: suzuki, name: "Suzuki" },
+  { src: tesla, name: "Tesla" },
+  { src: chev, name: "Chevrolet" },
+  { src: eicher, name: "Eicher" },
+  { src: ferrari, name: "Ferrari" },
+  { src: kia, name: "Kia" },
+  { src: isuzu, name: "Isuzu" },
+  { src: landRover, name: "Land Rover" },
+  { src: mg, name: "MG" },
+  { src: mitsubishi, name: "Mitsubishi" },
+  { src: porsche, name: "Porsche" },
+  { src: skoda, name: "Skoda" },
+  { src: toyota, name: "Toyota" },
+  { src: volkswagen, name: "Volkswagen" },
+];
 
-  ];
+  // ---- STATE + LOGIC ----
+const [topBrands, setTopBrands] = useState([]);
+const [visibleBrands, setVisibleBrands] = useState([]);
 
-  const [visibleBrands, setVisibleBrands] = useState([]); // all brands
-  const [topBrands, setTopBrands] = useState([]); // top row
+const updateVisibleItems = () => {
+  const total = brand.length;
+  const half = Math.ceil(total / 2); // split equally
 
-  const updateVisibleItems = () => {
-    const width = window.innerWidth;
-    setVisibleBrands(brand); // keep all brands for bottom row
+  const topPart = brand.slice(0, half);
+  const bottomPart = brand.slice(half);
+    // Double each list to make scrolling seamless
+  setTopBrands([...topPart, ...topPart]);
+  setVisibleBrands([...bottomPart, ...bottomPart]);
 
-    const topCount = width < 1024 ? 8 : 10;
-    setTopBrands(brand.slice(0, topCount)); // only top row limited
-  };
+  // setTopBrands(topPart);
+  // setVisibleBrands(bottomPart);
+};
 
-  useEffect(() => {
-    updateVisibleItems(); // run immediately
-    window.addEventListener("resize", updateVisibleItems);
+useEffect(() => {
+  updateVisibleItems();
+  window.addEventListener("resize", updateVisibleItems);
+  return () => window.removeEventListener("resize", updateVisibleItems);
+}, []);
 
-    return () => window.removeEventListener("resize", updateVisibleItems);
-  }, []);
 
 
   //
@@ -482,12 +506,6 @@ const Home = () => {
       review: "Amazing job done by the passionate team at ReviveAuto. Complete service done with break pads replacement.",
       rating: 5,
     },
-    // {
-    //   name: "Raj P",
-    //   role: "5 months ago",
-    //   review: "Bhushan is an experienced petrolhead and a passionate auto enthusiast. His and his team's love for autos shows in every job they take up. His chill team works their magic, treating every ride like it's their baby. Detailing, repairs or mods, Revive and team are a great team to get your work done.",
-    //   rating: 5,
-    // },
     {
       name: "Anay Raut",
       role: "9 months ago",
@@ -699,6 +717,49 @@ const Home = () => {
     slider.scrollLeft = slider.scrollLeftStart - walk; // drag right → scroll right
   };
 
+  // Auto-scroll effect for top and bottom rows
+useEffect(() => {
+  let scrollIntervalTop;
+  let scrollIntervalBottom;
+
+  const startAutoScroll = () => {
+    const topSlider = scrollRefTop.current;
+    const bottomSlider = scrollRefBottom.current;
+
+    if (!topSlider || !bottomSlider) return;
+
+    // --- TOP ROW: Left → Right ---
+    scrollIntervalTop = setInterval(() => {
+      topSlider.scrollLeft += 1;
+
+      // if reached half of the doubled content → reset smoothly
+      if (topSlider.scrollLeft >= topSlider.scrollWidth / 2) {
+        topSlider.scrollLeft = 0;
+      }
+    }, 16); // 60 FPS
+
+    // --- BOTTOM ROW: Right → Left ---
+    scrollIntervalBottom = setInterval(() => {
+      bottomSlider.scrollLeft -= 1;
+
+      // when reaching start → reset to halfway mark
+      if (bottomSlider.scrollLeft <= 0) {
+        bottomSlider.scrollLeft = bottomSlider.scrollWidth / 2;
+      }
+    }, 16);
+  };
+
+  startAutoScroll();
+
+  // Clean up on unmount
+  return () => {
+    clearInterval(scrollIntervalTop);
+    clearInterval(scrollIntervalBottom);
+  };
+}, [topBrands, visibleBrands]);
+
+
+
 
   return (
     <>
@@ -875,50 +936,50 @@ const Home = () => {
 
             {/* Swiper Carousel */}
             <div className="py-6 px-6 md:px-12 mt-2 relative">
-              <Swiper
-                modules={[Pagination, Navigation]}
-                spaceBetween={20}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                navigation={{
-                  nextEl: '.swiper-button-next',
-                  prevEl: '.swiper-button-prev',
-                }}
-                breakpoints={{
-                  640: {
-                    slidesPerView: 2,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                  },
-                }}
-                className="!pb-10"
-              >
-                {services.map((service, index) => (
-                  <SwiperSlide key={index}>
-                    <Link to={service.link} state={{ from: 'services' }}>
-                      <div className="bg-white w-full rounded-2xl shadow-xl overflow-hidden animate-item">
-                        <img
-                          src={service.image}
-                          loading="lazy"
-                          decoding="async"
-                          fetchpriority="low"
-                          alt={service.title}
-                          className="w-full md:h-72 h-52 object-cover"
-                        />
-                        <div className="p-6 text-center">
-                          <h3 className="text-xl font-semibold text-black mb-3">
-                            {service.title}
-                          </h3>
-                          <p className="text-gray-600 text-sm">
-                            {service.description}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+            <Swiper
+  modules={[Pagination, Navigation]}
+  spaceBetween={20}
+  slidesPerView={1}
+  pagination={{ clickable: true }}
+  navigation={{
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  }}
+  breakpoints={{
+    640: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  }}
+  className="!pb-10"
+>
+{services.map((service, index) => (
+  <SwiperSlide key={index} className="flex">
+    <Link to={service.link} state={{ from: "services" }}>
+      <div className="bg-white w-full rounded-2xl shadow-xl overflow-hidden flex flex-col h-full">
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-52 md:h-60 lg:h-72 object-cover"
+        />
+        <div className="p-6 flex flex-col flex-grow justify-between">
+          <h3 className="text-xl font-semibold text-black mb-2">{service.title}</h3>
+          <p className="text-gray-600 text-sm md:text-base leading-snug">
+            {service.shortDescription && service.longDescription
+              ? window.innerWidth >= 780                ? service.shortDescription // Desktop
+                : service.longDescription // Mobile/Tablet
+              : service.description}
+          </p>
+        </div>
+      </div>
+    </Link>
+  </SwiperSlide>
+))}
+
+</Swiper>
+
             </div>
 
             {/* <div className="py-6 px-6 md:px-12 mt-2 relative">
@@ -971,55 +1032,67 @@ const Home = () => {
 
         {/* Brand We Serve  */}
 
-        <section
-          className="w-[90%] mx-auto md:mt-[80px] py-6"
-          id="brand-item"
-          ref={brandWeServeRef}
+<section className="w-[90%] mx-auto md:mt-[80px] mb-18 md:mb-8 py-6" id="brand-item">
+  <h1 className="text-center text-xl md:text-2xl font-medium mb-10 md:mb-15">
+    Brands We Serve
+  </h1>
+
+  {/* --- Top Row --- */}
+  <div
+    ref={scrollRefTop}
+    onMouseDown={handleMouseDown(scrollRefTop)}
+    onMouseLeave={handleMouseLeave(scrollRefTop)}
+    onMouseUp={handleMouseUp(scrollRefTop)}
+    onMouseMove={handleMouseMove(scrollRefTop, false)}
+    className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none"
+  >
+    <div className="flex gap-8 w-max px-4">
+      {topBrands.map((brand, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center"
         >
-          <h1 className="text-center text-xl md:text-2xl font-medium mb-6 md:mb-12">
-            Brands We Serve
-          </h1>
+          <img
+            src={brand.src}
+            alt={brand.name}
+            className="w-14 md:w-24 h-auto hover:scale-110 transition-transform duration-300"
+            draggable={false}
+          />
+          <p className="mt-2 text-sm md:text-base">{brand.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
 
-          <div
-            ref={scrollRefTop}
-            onMouseDown={handleMouseDown(scrollRefTop)}
-            onMouseLeave={handleMouseLeave(scrollRefTop)}
-            onMouseUp={handleMouseUp(scrollRefTop)}
-            onMouseMove={handleMouseMove(scrollRefTop)}
-            className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none"
-          >
-            <div className="flex gap-8 w-max px-4">
-              {visibleBrands.slice(0, 10).map((brand, index) => (
-                <div key={index} className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center">
-                  <img src={brand.src} alt={brand.name} className="w-16 md:w-24 h-auto hover:scale-110 transition-transform duration-300" />
-                  <p className="mt-2 text-sm md:text-base">{brand.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+  {/* --- Bottom Row --- */}
+  <div
+    ref={scrollRefBottom}
+    onMouseDown={handleMouseDown(scrollRefBottom)}
+    onMouseLeave={handleMouseLeave(scrollRefBottom)}
+    onMouseUp={handleMouseUp(scrollRefBottom)}
+    onMouseMove={handleMouseMove(scrollRefBottom, true)}
+    className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none mt-10"
+  >
+    <div className="flex gap-8 w-max px-4">
+      {visibleBrands.map((brand, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center"
+        >
+          <img
+            src={brand.src}
+            alt={brand.name}
+            className="w-14 md:w-24 h-auto hover:scale-110 transition-transform duration-300"
+            draggable={false}
+          />
+          <p className="mt-2 text-sm md:text-base">{brand.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
-          {/* Bottom Row */}
-          <div
-            ref={scrollRefBottom}
-            onMouseDown={handleMouseDown(scrollRefBottom)}
-            onMouseLeave={handleMouseLeave(scrollRefBottom)}
-            onMouseUp={handleMouseUp(scrollRefBottom)}
-            onMouseMove={handleMouseMove(scrollRefBottom)}
-            className="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide select-none mt-10"
-          >
-            <div className="flex gap-8 w-max px-4">
-              {visibleBrands.slice(10).map((brand, index) => (
-                <div key={index + 10} className="flex-shrink-0 w-32 md:w-40 flex flex-col items-center text-center">
-                  <img src={brand.src} alt={brand.name} className="w-16 md:w-24 h-auto hover:scale-110 transition-transform duration-300" />
-                  <p className="mt-2 text-sm md:text-base">{brand.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-
-        </section>
-
+    
         {/* // Latest Project  */}
         <section className="w-[100%] md:mt-[150px] py-12 bg-gray-400 scroll-mt-18" ref={galleryRef} id='gallery'>
           <div>

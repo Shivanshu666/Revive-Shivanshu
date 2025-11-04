@@ -51,7 +51,7 @@ const Footer = () => {
       >
         <FaInstagram className="text-black hover:text-red-600 cursor-pointer" />
       </a>
-      <a href="#" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
         <FaYoutube className="text-black hover:text-red-600 cursor-pointer" />
       </a>
     </div>

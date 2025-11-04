@@ -80,7 +80,7 @@ const Navbar = () => {
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                 <FaInstagram className="hover:text-red-600 transition" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
                 <FaYoutube className="hover:text-red-600 transition" />
               </a>
             </div>
