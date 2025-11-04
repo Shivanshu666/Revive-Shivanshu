@@ -1294,14 +1294,14 @@ const Home = () => {
               <h3 className="text-2xl font-semibold mb-2 md:block hidden">
                 Contact
               </h3>
-              <a
+              {/* <a
                 href="https://www.google.com/maps/search/?api=1&query=Plot+no+11+12,+Suffah+Colony+Rd,+opp.+Wipro+Campus+Road,+Journalists+Colony+Phase+3,+Phase+3,+Gachibowli,+Gopanpalle,+Hyderabad,+Telangana+500075"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-800 md:block hidden"
               >
                 Plot no 11 12, Suffah Colony Rd, opp. Wipro Campus Road, Journalists Colony Phase 3, Phase 3, Gachibowli, Gopanpalle, Hyderabad, Telangana 500075
-              </a>
+              </a> */}
 
               <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a>
               <a href="mailto:info@revive-auto.in" className="text-gray-600 md:block hidden ">
