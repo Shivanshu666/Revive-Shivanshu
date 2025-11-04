@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation, Link, Navigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -1335,6 +1336,50 @@ useEffect(() => {
           </div>
         </section>
 
+             {/* // for mobile contact  */}
+     <section className="w-[90%] bg-[#FFEEEE] py-9 mx-auto md:hidden p-4">
+  <div className="space-y-8 flex flex-col justify-center items-center">
+    {/* Customer Support */}
+    <div className="flex flex-col justify-center items-center">
+      <FaEnvelope className="text-3xl mb-2" /> {/* increased size */}
+      <h1 className="text-xl font-semibold mb-2">Customer Support</h1>
+      <p className="text-gray-700 text-center">
+        Our customer support team is ready to assist you with any questions or concerns. Whether you need help with buying, selling, or trading a car, we're here to provide quick and reliable solutions.
+      </p>
+    </div>
+
+    {/* Location */}
+<a
+  href="https://www.google.com/maps?q=Revive+Auto+Studio+and+Garage,+Plot+no+11+12,+Suffah+Colony+Rd,+opp.+Wipro+Campus+Road,+Journalists+Colony+Phase+3,+Phase+3,+Gachibowli,+Gopanpalle,+Hyderabad,+Telangana+500075"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex flex-col justify-center items-center text-center hover:text-blue-600 transition"
+>
+  <FaMapMarkerAlt className="text-3xl mb-2" />
+  <h1 className="text-xl font-semibold mb-2">Location</h1>
+  <p className="text-gray-700 text-center">
+    Revive Auto Studio and Garage, Plot no 11 12, Suffah Colony Rd, opp. Wipro Campus Road, Journalists Colony Phase 3, Phase 3, Gachibowli, Gopanpalle, Hyderabad, Telangana 500075
+  </p>
+</a>
+
+    {/* Contact Support */}
+    <div className="flex flex-col justify-center items-center">
+      <FaPhoneAlt className="text-3xl mb-2" /> {/* increased size */}
+      <h1 className="text-xl font-semibold mb-2">Contact Support</h1>
+      <div className="flex flex-col space-y-2 justify-center items-center">
+          <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a>
+        <a href="mailto:info@revive-auto.in" className="flex items-center text-red-600 hover:underline">
+          info@revive-auto.in
+        </a>
+        <a href="tel:+917382661199" className="flex items-center text-red-600 hover:underline">
+          +91-7382661199
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
         {/* // Booking  */}
         <section className="w-[90%]  md:mt-[120px] max-w-6xl mx-auto py-10 scroll-mt-9" id='booking' ref={bookingRef}>
           <h2 className="text-xl md:text-2xl font-bold md:mb-18 mb-4 text-center">
@@ -1363,25 +1408,25 @@ useEffect(() => {
                 selling, or servicing a car, we’re here to provide quick and
                 reliable solutions.
               </p>
+       <h3 className="text-3xl font-semibold mb-2 md:block hidden">Location</h3>
+  <a 
+    href="https://www.google.com/maps?q=Revive+Auto+Studio+and+Garage,+Plot+no+11+12,+Suffah+Colony+Rd,+opp.+Wipro+Campus+Road,+Journalists+Colony+Phase+3,+Gachibowli,+Hyderabad,+Telangana+500075"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-700 hover:text-red-600 md:block hidden mb-9 hover:underline transition"
+  >
+    Revive Auto Studio and Garage, Plot no 11 12, Suffah Colony Rd, opp. Wipro Campus Road, Journalists Colony Phase 3, Phase 3, Gachibowli, Gopanpalle, Hyderabad, Telangana 500075.
+  </a>
 
               <h3 className="text-2xl font-semibold mb-2 md:block hidden">
                 Contact
               </h3>
-              {/* <a
-                href="https://www.google.com/maps/search/?api=1&query=Plot+no+11+12,+Suffah+Colony+Rd,+opp.+Wipro+Campus+Road,+Journalists+Colony+Phase+3,+Phase+3,+Gachibowli,+Gopanpalle,+Hyderabad,+Telangana+500075"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-800 md:block hidden"
-              >
-                Plot no 11 12, Suffah Colony Rd, opp. Wipro Campus Road, Journalists Colony Phase 3, Phase 3, Gachibowli, Gopanpalle, Hyderabad, Telangana 500075
-              </a> */}
-
-              <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a>
-              <a href="mailto:info@revive-auto.in" className="text-gray-600 md:block hidden ">
+              <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hidden md:block hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a>
+              <a href="mailto:info@revive-auto.in" className="text-red-600 md:block hidden ">
                 info@revive-auto.in
               </a>
 
-              <a href="tel:+917382661199" className="text-gray-600 md:block hidden ">
+              <a href="tel:+917382661199" className="text-red-600 md:block hidden ">
                 +91-7382661199
               </a>
 
@@ -1531,6 +1576,8 @@ useEffect(() => {
             />
           </div>
         </section>
+
+   
       </main>
     </>
   );
