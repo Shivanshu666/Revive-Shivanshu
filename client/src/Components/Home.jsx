@@ -1421,7 +1421,7 @@ useEffect(() => {
               <h3 className="text-2xl font-semibold mb-2 md:block hidden">
                 Contact
               </h3>
-              <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hidden md:block hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a>
+              {/* <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hidden md:block hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a> */}
               <a href="mailto:info@revive-auto.in" className="text-red-600 md:block hidden ">
                 info@revive-auto.in
               </a>
