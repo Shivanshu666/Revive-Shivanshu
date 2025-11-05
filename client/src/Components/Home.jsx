@@ -1367,7 +1367,7 @@ useEffect(() => {
       <FaPhoneAlt className="text-3xl mb-2" /> {/* increased size */}
       <h1 className="text-xl font-semibold mb-2">Contact Support</h1>
       <div className="flex flex-col space-y-2 justify-center items-center">
-          <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a>
+          {/* <a href="https://share.google/8iGTOfYnibzGhWByl" className="text-blue-600 hover:text-blue-900 mb-2">https://share.google/8iGTOfYnibzGhWByl</a> */}
         <a href="mailto:info@revive-auto.in" className="flex items-center text-red-600 hover:underline">
           info@revive-auto.in
         </a>
